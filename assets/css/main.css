@@ -13985,6 +13985,7 @@ strong {
   transition: all 0.3s ease;
   background-color: #f8f8f8;
   border: 1px solid var(--tc-border-1);
+  padding: 5px;
 }
 .section-hero-2 .brand-logo:hover {
   transition: all 0.3s ease;
