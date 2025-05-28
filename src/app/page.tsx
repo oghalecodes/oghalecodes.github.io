@@ -9,20 +9,22 @@ import Static from "@/components/sections/Static"
 import Contact from "@/components/sections/Contact"
 import Blog from "@/components/sections/Blog"
 import Skills from "@/components/sections/Skills"
+import Coporation from "@/components/sections/Coporation"
+import Experience from "@/components/sections/Experience"
+import Education from "@/components/sections/Education"
 
 export default function Home() {
-
 	return (
 		<>
 			<Layout headerStyle={2} footerStyle={2}>
 				<Hero />
 				<Static />
+				<Coporation />
 				<Service />
+				<Experience />
+				<Education />
 				<Projects />
-				<Resume />
 				<Skills />
-				<Brands />
-				<Testimonials />
 				<Blog />
 				<Contact />
 			</Layout>

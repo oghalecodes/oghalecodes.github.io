@@ -13,10 +13,12 @@ export default function AddClassBody() {
 			if (pathname === '/index-2') {
 				bodyElement.classList.add('home-page-2')
 			}
-			if (pathname === '/index-3') {
+			else if (pathname === '/index-3') {
 				bodyElement.classList.add('home-page-3')
 			}
-
+			else{
+				bodyElement.classList.add('home-page-2')
+			}
 		}
 	}, [pathname])
 

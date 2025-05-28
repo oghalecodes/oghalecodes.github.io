@@ -17,9 +17,10 @@ interface LayoutProps {
   headerStyle?: number
   footerStyle?: number
   children?: React.ReactNode
+	breadcrumbTitle?: string
 }
 
-export default function Layout({ headerStyle, footerStyle, children }: LayoutProps) {
+export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, children }: LayoutProps) {
   const [scroll, setScroll] = useState<boolean>(false)
   // Mobile Menu
   const [isMobileMenu, setMobileMenu] = useState<boolean>(false)
@@ -35,13 +36,22 @@ export default function Layout({ headerStyle, footerStyle, children }: LayoutPro
   useEffect(() => {
     // Dynamically import WOW.js for animations
     let wowInstance: any;
-    import('wowjs').then((WOWModule) => {
-      const WOW = WOWModule.WOW;
-      wowInstance = new WOW({
-        live: false
-      });
-      wowInstance.init();
-      (window as any).wow = wowInstance;
+    
+    // Use a safer approach for importing wowjs
+    import('wowjs/dist/wow.js').then((result) => {
+      // Access the window's WOW constructor directly after loading the script
+      const WOWConstructor = (window as any).WOW;
+      
+      if (WOWConstructor) {
+        wowInstance = new WOWConstructor({
+          live: false
+        });
+        wowInstance.init();
+      } else {
+        console.error('WOW constructor not found on window object');
+      }
+    }).catch(err => {
+      console.error('Error loading WOW.js:', err);
     });
 
     const handleScroll = (): void => {

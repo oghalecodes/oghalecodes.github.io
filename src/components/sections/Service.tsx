@@ -15,12 +15,11 @@ export default function Service() {
 										<svg className="text-primary-2 me-2" xmlns="http://www.w3.org/2000/svg" width={5} height={6} viewBox="0 0 5 6" fill="none">
 											<circle cx="2.5" cy={3} r="2.5" fill="#A8FF53" />
 										</svg>
-										<span className="text-linear-4 d-flex align-items-center"> Cooperation </span>
+										<span className="text-linear-4 d-flex align-items-center"> Services </span>
 									</div>
 									<h3>
-										Designing solutions
-										<span className="text-300">
-											customized<br />
+										Designing solutions 
+										<span className="text-300"> customized<br />
 											to meet your requirements
 										</span>
 									</h3>
@@ -85,7 +84,7 @@ export default function Service() {
 									<div className="text-center pt-60">
 										<p className="text-300">
 											Excited to take on <span className="text-dark">new projects</span> and collaborate. <br />
-											Let's chat about your ideas. <Link href="#" className="text-primary-2">Reach out!</Link>
+											Let's chat about your ideas. <Link href="https://outlook.office.com/book/IAMOGHALE@iamoghale.com" className="text-primary-2" target='_blank'>Let's Talk!</Link>
 										</p>
 									</div>
 								</div>

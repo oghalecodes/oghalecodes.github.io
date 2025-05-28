@@ -1,12 +1,6 @@
-import "/public/assets/css/vendors/bootstrap.min.css"
-import "/public/assets/css/vendors/swiper-bundle.min.css"
-import "/public/assets/css/vendors/carouselTicker.css"
-import "/public/assets/css/vendors/magnific-popup.css"
-import "/public/assets/fonts/remixicon/remixicon.css"
-import "/public/assets/css/main.css"
-
 import type { Metadata } from "next"
 import { Urbanist, Playfair_Display, DM_Mono } from "next/font/google"
+import "./global.css"
 
 const urbanist = Urbanist({
 	weight: ['300', '400', '500', '600', '700'],
@@ -27,19 +21,25 @@ const dmMono = DM_Mono({
 	display: 'swap',
 })
 
+// Note: only Urbanist is applied globally; other fonts can be applied per component as needed
+
 export const metadata: Metadata = {
-	title: "IAMOGHALE - Full Stack Software Engineer",
-	description: "I am Oghale, a Full Stack Software Engineer with expertise in building scalable web applications.",
-}
+  title: "IAMOGHALE | Full Software Engineer",
+  authors: [{ name: "Oghale" }],
+  keywords: ["Full Stack Developer", "Web Developer", "App Developer", "Portfolio"],
+  description: "I am Oghale, a Full Stack Developer specializing in web and app development. I create innovative solutions using modern technologies like NodeJS, React, Angular, and Laravel.",
+};
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en" data-bs-theme="dark" className="zelio">
-			<body className={`${urbanist.variable} ${playfair_display.variable} ${dmMono.variable}`}>{children}</body>
-		</html>
-	)
+  return (
+    <html lang="en" data-bs-theme="dark" className="zelio">
+      <body className={`${urbanist.variable} ${playfair_display.variable} ${dmMono.variable}`}>
+        {children}
+      </body>
+    </html>
+  )
 }

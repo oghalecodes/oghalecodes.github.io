@@ -1,7 +1,20 @@
 import Link from 'next/link'
 
 
+// Utility to calculate full years difference between two dates
+function calculateYears(start: Date, end: Date) {
+  let years = end.getFullYear() - start.getFullYear();
+  if (
+    end.getMonth() < start.getMonth() ||
+    (end.getMonth() === start.getMonth() && end.getDate() < start.getDate())
+  ) {
+    years--;
+  }
+  return years;
+}
+
 export default function Experience() {
+	const yearsExperience = calculateYears(new Date('2016-01-01'), new Date());
 	return (
 		<>
 
@@ -17,12 +30,10 @@ export default function Experience() {
 									<span className="text-linear-4 d-flex align-items-center"> Expericence </span>
 								</div>
 								<h3>
-									+12
-									<span className="text-300">years of </span>
-									passion
-									<span className="text-300">
-										for <br />
-										programming techniques
+									+{yearsExperience}
+									<span className="text-300"> years of </span>
+									passion 
+									<span className="text-300"> for <br /> programming techniques
 									</span>
 								</h3>
 								<div className="row mt-5">

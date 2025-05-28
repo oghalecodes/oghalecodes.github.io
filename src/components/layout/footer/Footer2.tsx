@@ -8,19 +8,19 @@ export default function Footer2() {
 						<div className="text-center">
 							<a className="d-flex main-logo align-items-center justify-content-center mb-3">
 								<img src="assets/imgs/home-page-2/template/favicon.svg" alt="zelio" />
-								<span className="fs-4 ms-2">James.dev</span>
+								<span className="fs-4 ms-2">IAMOGHALE</span>
 							</a>
 							<div className="d-flex justify-content-center gap-3">
-								<a href="http://facebook.com">
-									<i className="ri-facebook-circle-fill fs-18" />
+								<a href="https://medium.com/@oghalecodes">
+									<i className="ri-medium-fill fs-18" />
 								</a>
-								<a href="http://twitter.com">
-									<i className="ri-twitter-x-fill fs-18" />
+								<a href="https://www.instagram.com/oghale_codes">
+									<i className="ri-instagram-fill fs-18" />
 								</a>
-								<a href="http://linkedin.com">
+								<a href="https://linkedin.com/in/iamoghale">
 									<i className="ri-linkedin-fill fs-18" />
 								</a>
-								<a href="http://github.com">
+								<a href="https://github.com/oghalecodes">
 									<i className="ri-github-fill fs-18" />
 								</a>
 							</div>
