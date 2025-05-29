@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Urbanist, Playfair_Display, DM_Mono } from "next/font/google"
-import "./global.css"
+import "/global.css"
 
 const urbanist = Urbanist({
 	weight: ['300', '400', '500', '600', '700'],
