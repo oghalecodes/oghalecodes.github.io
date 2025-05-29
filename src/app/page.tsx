@@ -19,11 +19,10 @@ export default function Home() {
 			<Layout headerStyle={2} footerStyle={2}>
 				<Hero />
 				<Static />
-				<Coporation />
 				<Service />
 				<Experience />
 				<Education />
-				<Projects />
+				{/* <Projects /> */}
 				<Skills />
 				<Blog />
 				<Contact />

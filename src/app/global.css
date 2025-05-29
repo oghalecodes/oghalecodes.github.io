@@ -7,3 +7,6 @@
 @import url('/assets/css/main.css');
 
 /* Global styles */
+.sm-logo {
+  width: 50px;
+}
