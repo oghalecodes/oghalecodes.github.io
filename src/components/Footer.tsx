@@ -1,11 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(2025);
+  
+  useEffect(() => {
+    // Update year on client side after hydration
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   const socialLinks = [
     {
