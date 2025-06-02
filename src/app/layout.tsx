@@ -35,14 +35,16 @@ export default function RootLayout({
                     document.documentElement.setAttribute('data-theme', theme);
                     document.documentElement.style.setProperty('color-scheme', theme);
                   }
-                  // Add hydrated class after a brief delay to prevent flash
-                  setTimeout(function() {
-                    document.documentElement.classList.add('hydrated');
-                  }, 50);
                 } catch (e) {
                   console.warn('Theme initialization failed:', e);
-                  document.documentElement.classList.add('hydrated');
                 }
+                
+                // Add hydrated class after a brief delay to prevent flash
+                document.addEventListener('DOMContentLoaded', function() {
+                  setTimeout(function() {
+                    document.documentElement.classList.add('hydrated');
+                  }, 100);
+                });
               })();
             `,
           }}

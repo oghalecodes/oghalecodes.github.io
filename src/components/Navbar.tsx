@@ -15,6 +15,7 @@ export const Navbar: React.FC = () => {
       className="navbar-custom"
       variant="light"
       data-bs-theme={mounted ? theme : 'light'}
+      suppressHydrationWarning
     >
       <Container>
         <BootstrapNavbar.Brand href="#home" className="fw-bold">
@@ -41,6 +42,7 @@ export const Navbar: React.FC = () => {
               onClick={toggleTheme}
               aria-label="Toggle theme"
               style={{ border: 'none', background: 'transparent' }}
+              suppressHydrationWarning
             >
               {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>

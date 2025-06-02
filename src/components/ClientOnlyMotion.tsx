@@ -20,7 +20,12 @@ export const ClientOnlyMotion: React.FC<ClientOnlyMotionProps> = ({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Use requestAnimationFrame to ensure DOM is ready
+    const timer = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    
+    return () => cancelAnimationFrame(timer);
   }, []);
 
   // Render static version during SSR and initial client render

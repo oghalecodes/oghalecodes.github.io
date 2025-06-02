@@ -5,6 +5,7 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { ClientOnlyMotion } from './ClientOnlyMotion';
+import { HydrationDebug } from '@/lib/hydration-debug';
 
 interface BlogPost {
   id: number;
@@ -49,12 +50,7 @@ export const Blog: React.FC = () => {
   ];
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    return HydrationDebug.formatDate(dateString);
   };
 
   return (

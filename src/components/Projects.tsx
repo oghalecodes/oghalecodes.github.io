@@ -118,10 +118,13 @@ export const Projects: React.FC = () => {
                       onError={(e) => {
                         // Fallback to gradient background if image fails to load
                         const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.parentElement!.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                        target.parentElement!.style.height = '200px';
+                        if (target.parentElement) {
+                          target.style.display = 'none';
+                          target.parentElement.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                          target.parentElement.style.height = '200px';
+                        }
                       }}
+                      suppressHydrationWarning
                     />
                     <Badge 
                       bg="primary" 

@@ -54,13 +54,21 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     
     // Apply theme to document
     document.documentElement.setAttribute('data-theme', initialTheme);
-    localStorage.setItem('theme', initialTheme);
+    try {
+      localStorage.setItem('theme', initialTheme);
+    } catch (error) {
+      console.warn('Failed to save theme to localStorage:', error);
+    }
   }, []);
 
   useEffect(() => {
     if (mounted) {
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (error) {
+        console.warn('Failed to save theme to localStorage:', error);
+      }
     }
   }, [theme, mounted]);
 
