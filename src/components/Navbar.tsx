@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
       expand="lg" 
       fixed="top" 
       className="navbar-custom"
-      variant={theme}
+      variant={mounted ? theme : 'light'}
     >
       <Container>
         <BootstrapNavbar.Brand href="#home" className="fw-bold">
@@ -44,8 +44,13 @@ export const Navbar: React.FC = () => {
               className="btn btn-outline-secondary me-2"
               onClick={toggleTheme}
               aria-label="Toggle theme"
+              suppressHydrationWarning
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              {mounted ? (
+                theme === 'light' ? <Moon size={20} /> : <Sun size={20} />
+              ) : (
+                <Moon size={20} />
+              )}
             </button>
             <Nav.Link 
               href="/resume.pdf" 
