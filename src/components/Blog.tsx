@@ -4,6 +4,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { ClientOnlyMotion } from './ClientOnlyMotion';
 
 interface BlogPost {
   id: number;
@@ -59,7 +60,7 @@ export const Blog: React.FC = () => {
   return (
     <section id="blog" className="section-padding bg-light">
       <Container>
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -70,12 +71,12 @@ export const Blog: React.FC = () => {
           <p className="lead text-muted">
             Sharing knowledge and insights from my development journey
           </p>
-        </motion.div>
+        </ClientOnlyMotion>
 
         <Row>
           {blogPosts.map((post, index) => (
             <Col lg={4} md={6} key={post.id} className="mb-4">
-              <motion.div
+              <ClientOnlyMotion
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -132,12 +133,12 @@ export const Blog: React.FC = () => {
                     </div>
                   </Card.Body>
                 </Card>
-              </motion.div>
+              </ClientOnlyMotion>
             </Col>
           ))}
         </Row>
 
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -153,7 +154,7 @@ export const Blog: React.FC = () => {
             View All Posts
             <ArrowRight size={20} />
           </Button>
-        </motion.div>
+        </ClientOnlyMotion>
       </Container>
     </section>
   );

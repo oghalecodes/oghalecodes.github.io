@@ -85,7 +85,7 @@ export const Contact: React.FC = () => {
 
         <Row>
           <Col lg={4} className="mb-5">
-            <motion.div
+            <ClientOnlyMotion
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -99,7 +99,7 @@ export const Contact: React.FC = () => {
 
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
-                  <motion.div
+                  <ClientOnlyMotion
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -123,14 +123,14 @@ export const Contact: React.FC = () => {
                         <p className="text-muted mb-0">{info.value}</p>
                       )}
                     </div>
-                  </motion.div>
+                  </ClientOnlyMotion>
                 ))}
               </div>
-            </motion.div>
+            </ClientOnlyMotion>
           </Col>
 
           <Col lg={8}>
-            <motion.div
+            <ClientOnlyMotion
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -228,7 +228,7 @@ export const Contact: React.FC = () => {
                   </Form>
                 </Card.Body>
               </Card>
-            </motion.div>
+            </ClientOnlyMotion>
           </Col>
         </Row>
       </Container>

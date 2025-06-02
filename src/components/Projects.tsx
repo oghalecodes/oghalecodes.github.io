@@ -4,6 +4,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { ClientOnlyMotion } from './ClientOnlyMotion';
 
 interface Project {
   id: number;
@@ -85,7 +86,7 @@ export const Projects: React.FC = () => {
   return (
     <section id="projects" className="section-padding bg-light">
       <Container>
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -96,13 +97,13 @@ export const Projects: React.FC = () => {
           <p className="lead text-muted">
             A showcase of my recent work and side projects
           </p>
-        </motion.div>
+        </ClientOnlyMotion>
 
         {/* Featured Projects */}
         <Row className="mb-5">
           {featuredProjects.map((project, index) => (
             <Col lg={4} md={6} key={project.id} className="mb-4">
-              <motion.div
+              <ClientOnlyMotion
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -178,13 +179,13 @@ export const Projects: React.FC = () => {
                     </div>
                   </Card.Body>
                 </Card>
-              </motion.div>
+              </ClientOnlyMotion>
             </Col>
           ))}
         </Row>
 
         {/* Other Projects */}
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -192,12 +193,12 @@ export const Projects: React.FC = () => {
           className="text-center mb-4"
         >
           <h3 className="fw-bold mb-3">Other Notable Projects</h3>
-        </motion.div>
+        </ClientOnlyMotion>
 
         <Row>
           {otherProjects.map((project, index) => (
             <Col lg={4} md={6} key={project.id} className="mb-4">
-              <motion.div
+              <ClientOnlyMotion
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -254,12 +255,12 @@ export const Projects: React.FC = () => {
                     </div>
                   </Card.Body>
                 </Card>
-              </motion.div>
+              </ClientOnlyMotion>
             </Col>
           ))}
         </Row>
 
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -277,7 +278,7 @@ export const Projects: React.FC = () => {
             <Github size={20} />
             View All Projects on GitHub
           </Button>
-        </motion.div>
+        </ClientOnlyMotion>
       </Container>
     </section>
   );

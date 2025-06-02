@@ -4,6 +4,7 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Building } from 'lucide-react';
+import { ClientOnlyMotion } from './ClientOnlyMotion';
 
 interface ExperienceItem {
   id: number;
@@ -78,7 +79,7 @@ export const Experience: React.FC = () => {
   return (
     <section id="experience" className="section-padding">
       <Container>
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -89,12 +90,12 @@ export const Experience: React.FC = () => {
           <p className="lead text-muted">
             My professional journey as a software engineer
           </p>
-        </motion.div>
+        </ClientOnlyMotion>
 
         <div className="timeline position-relative">
           {experiences.map((experience, index) => (
             <div key={experience.id} className="timeline-item mb-5">
-              <motion.div
+              <ClientOnlyMotion
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -146,7 +147,7 @@ export const Experience: React.FC = () => {
                     </div>
                   </Card.Body>
                 </Card>
-              </motion.div>
+              </ClientOnlyMotion>
             </div>
           ))}
         </div>

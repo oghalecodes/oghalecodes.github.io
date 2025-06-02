@@ -5,9 +5,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const [currentYear, setCurrentYear] = useState(2025);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
+    setMounted(true);
     // Update year on client side after hydration
     setCurrentYear(new Date().getFullYear());
   }, []);
@@ -133,8 +135,8 @@ export const Footer: React.FC = () => {
         
         <Row className="align-items-center">
           <Col md={6}>
-            <p className="text-muted mb-0">
-              © {currentYear} Your Name. All rights reserved.
+            <p className="text-muted mb-0" suppressHydrationWarning>
+              © {mounted ? currentYear : new Date().getFullYear()} Your Name. All rights reserved.
             </p>
           </Col>
           <Col md={6} className="text-md-end">
