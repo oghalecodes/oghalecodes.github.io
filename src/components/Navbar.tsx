@@ -1,24 +1,20 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar as BootstrapNavbar, Nav, Container } from 'react-bootstrap';
 import { useTheme } from './ThemeProvider';
 import { Sun, Moon, Menu } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { theme, toggleTheme, mounted } = useTheme();
 
   return (
     <BootstrapNavbar 
       expand="lg" 
       fixed="top" 
       className="navbar-custom"
-      variant={mounted ? theme : 'light'}
+      variant="light"
+      data-bs-theme={mounted ? theme : 'light'}
     >
       <Container>
         <BootstrapNavbar.Brand href="#home" className="fw-bold">
@@ -44,13 +40,9 @@ export const Navbar: React.FC = () => {
               className="btn btn-outline-secondary me-2"
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              suppressHydrationWarning
+              style={{ border: 'none', background: 'transparent' }}
             >
-              {mounted ? (
-                theme === 'light' ? <Moon size={20} /> : <Sun size={20} />
-              ) : (
-                <Moon size={20} />
-              )}
+              {mounted && theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <Nav.Link 
               href="/resume.pdf" 

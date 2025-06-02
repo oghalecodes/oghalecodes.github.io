@@ -3,6 +3,7 @@
 import React from 'react';
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import { ClientOnlyMotion } from './ClientOnlyMotion';
 
 export const Skills: React.FC = () => {
   const skillCategories = [
@@ -31,7 +32,7 @@ export const Skills: React.FC = () => {
   return (
     <section id="skills" className="section-padding">
       <Container>
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -42,12 +43,12 @@ export const Skills: React.FC = () => {
           <p className="lead text-muted">
             A comprehensive toolkit built over 8+ years of professional experience
           </p>
-        </motion.div>
+        </ClientOnlyMotion>
 
         <Row>
           {skillCategories.map((category, categoryIndex) => (
             <Col lg={6} key={categoryIndex} className="mb-5">
-              <motion.div
+              <ClientOnlyMotion
                 initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
@@ -56,7 +57,7 @@ export const Skills: React.FC = () => {
                 <h4 className="fw-bold mb-3 text-primary">{category.title}</h4>
                 <div className="d-flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <motion.div
+                    <ClientOnlyMotion
                       key={skillIndex}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -74,10 +75,10 @@ export const Skills: React.FC = () => {
                       >
                         {skill}
                       </Badge>
-                    </motion.div>
+                    </ClientOnlyMotion>
                   ))}
                 </div>
-              </motion.div>
+              </ClientOnlyMotion>
             </Col>
           ))}
         </Row>

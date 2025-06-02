@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { ClientOnlyMotion } from './ClientOnlyMotion';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -69,7 +70,7 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="section-padding">
       <Container>
-        <motion.div
+        <ClientOnlyMotion
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -80,7 +81,7 @@ export const Contact: React.FC = () => {
           <p className="lead text-muted">
             Have a project in mind or want to collaborate? I&apos;d love to hear from you!
           </p>
-        </motion.div>
+        </ClientOnlyMotion>
 
         <Row>
           <Col lg={4} className="mb-5">

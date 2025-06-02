@@ -4,6 +4,7 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ClientOnlyMotion } from './ClientOnlyMotion';
 
 export const Hero: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ export const Hero: React.FC = () => {
       <Container>
         <Row className="align-items-center min-vh-100">
           <Col lg={6}>
-            <motion.div
+            <ClientOnlyMotion
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -70,11 +71,11 @@ export const Hero: React.FC = () => {
                   <Linkedin size={24} />
                 </a>
               </div>
-            </motion.div>
+            </ClientOnlyMotion>
           </Col>
           
           <Col lg={6}>
-            <motion.div
+            <ClientOnlyMotion
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -96,7 +97,7 @@ export const Hero: React.FC = () => {
                 </div>
                 
                 {/* Floating elements */}
-                <motion.div
+                <ClientOnlyMotion
                   className="position-absolute top-0 start-0"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -104,9 +105,9 @@ export const Hero: React.FC = () => {
                   <div className="bg-warning rounded p-2 shadow">
                     <span className="fw-bold">React</span>
                   </div>
-                </motion.div>
+                </ClientOnlyMotion>
                 
-                <motion.div
+                <ClientOnlyMotion
                   className="position-absolute top-50 end-0"
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity }}
@@ -114,9 +115,9 @@ export const Hero: React.FC = () => {
                   <div className="bg-success rounded p-2 shadow">
                     <span className="fw-bold">Node.js</span>
                   </div>
-                </motion.div>
+                </ClientOnlyMotion>
                 
-                <motion.div
+                <ClientOnlyMotion
                   className="position-absolute bottom-0 start-50"
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 3, repeat: Infinity }}
@@ -124,9 +125,9 @@ export const Hero: React.FC = () => {
                   <div className="bg-info rounded p-2 shadow">
                     <span className="fw-bold">TypeScript</span>
                   </div>
-                </motion.div>
+                </ClientOnlyMotion>
               </div>
-            </motion.div>
+            </ClientOnlyMotion>
           </Col>
         </Row>
       </Container>

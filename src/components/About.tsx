@@ -4,6 +4,7 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Code, Users, Award, Coffee } from 'lucide-react';
+import { ClientOnlyMotion } from './ClientOnlyMotion';
 
 export const About: React.FC = () => {
   const stats = [
@@ -18,7 +19,7 @@ export const About: React.FC = () => {
       <Container>
         <Row>
           <Col lg={6}>
-            <motion.div
+            <ClientOnlyMotion
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -40,14 +41,14 @@ export const About: React.FC = () => {
                 mentoring junior developers, or exploring the latest technologies. I believe 
                 in continuous learning and sharing knowledge with the community.
               </p>
-            </motion.div>
+            </ClientOnlyMotion>
           </Col>
           
           <Col lg={6}>
             <Row>
               {stats.map((stat, index) => (
                 <Col md={6} key={index} className="mb-4">
-                  <motion.div
+                  <ClientOnlyMotion
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -64,7 +65,7 @@ export const About: React.FC = () => {
                         <p className="text-muted mb-0">{stat.label}</p>
                       </Card.Body>
                     </Card>
-                  </motion.div>
+                  </ClientOnlyMotion>
                 </Col>
               ))}
             </Row>
