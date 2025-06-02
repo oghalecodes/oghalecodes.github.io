@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -34,8 +35,13 @@ export default function RootLayout({
                     document.documentElement.setAttribute('data-theme', theme);
                     document.documentElement.style.setProperty('color-scheme', theme);
                   }
+                  // Add hydrated class after a brief delay to prevent flash
+                  setTimeout(function() {
+                    document.documentElement.classList.add('hydrated');
+                  }, 50);
                 } catch (e) {
                   console.warn('Theme initialization failed:', e);
+                  document.documentElement.classList.add('hydrated');
                 }
               })();
             `,
@@ -43,11 +49,13 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );

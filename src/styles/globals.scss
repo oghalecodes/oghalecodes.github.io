@@ -1,6 +1,16 @@
 // Custom global styles
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+// Prevent hydration flash
+html {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+html.hydrated {
+  opacity: 1;
+}
+
 // Custom CSS variables for theme
 :root {
   --primary-color: #007bff;
