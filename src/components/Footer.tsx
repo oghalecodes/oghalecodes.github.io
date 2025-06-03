@@ -65,5 +65,10 @@ export const Footer: React.FC = () => {
 					</div>
 				</div>
 			</footer>
+
+
+    // <p className="text-muted mb-0" suppressHydrationWarning>
+    // //           © {currentYear} Your Name. All rights reserved.
+    // //         </p>
   );
 };
