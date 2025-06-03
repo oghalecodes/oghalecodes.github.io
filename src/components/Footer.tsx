@@ -33,119 +33,37 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-dark text-light py-5">
-      <Container>
-        <Row>
-          <Col lg={6} className="mb-4">
-            <h5 className="fw-bold mb-3">Your Name</h5>
-            <p className="text-muted mb-3">
-              Senior Software Engineer passionate about building exceptional 
-              digital experiences and mentoring the next generation of developers.
-            </p>
-            <div className="d-flex gap-3">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline-light btn-sm"
-                  aria-label={link.label}
-                >
-                  <link.icon size={18} />
-                </a>
-              ))}
-            </div>
-          </Col>
-          
-          <Col lg={3} className="mb-4">
-            <h6 className="fw-bold mb-3">Quick Links</h6>
-            <ul className="list-unstyled">
-              <li className="mb-2">
-                <a href="#about" className="text-muted text-decoration-none">
-                  About
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#projects" className="text-muted text-decoration-none">
-                  Projects
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#experience" className="text-muted text-decoration-none">
-                  Experience
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#blog" className="text-muted text-decoration-none">
-                  Blog
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#contact" className="text-muted text-decoration-none">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </Col>
-          
-          <Col lg={3} className="mb-4">
-            <h6 className="fw-bold mb-3">Resources</h6>
-            <ul className="list-unstyled">
-              <li className="mb-2">
-                <a 
-                  href="/resume.pdf" 
-                  target="_blank"
-                  className="text-muted text-decoration-none"
-                >
-                  Resume
-                </a>
-              </li>
-              <li className="mb-2">
-                <a 
-                  href="/blog" 
-                  className="text-muted text-decoration-none"
-                >
-                  All Blog Posts
-                </a>
-              </li>
-              <li className="mb-2">
-                <a 
-                  href="https://github.com/yourusername" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted text-decoration-none"
-                >
-                  Open Source
-                </a>
-              </li>
-              <li className="mb-2">
-                <a 
-                  href="#contact" 
-                  className="text-muted text-decoration-none"
-                >
-                  Hire Me
-                </a>
-              </li>
-            </ul>
-          </Col>
-        </Row>
-        
-        <hr className="my-4 border-secondary" />
-        
-        <Row className="align-items-center">
-          <Col md={6}>
-            <p className="text-muted mb-0" suppressHydrationWarning>
-              © {currentYear} Your Name. All rights reserved.
-            </p>
-          </Col>
-          <Col md={6} className="text-md-end">
-            <p className="text-muted mb-0 d-flex align-items-center justify-content-md-end">
-              Made with <Heart size={16} className="text-danger mx-1" /> using Next.js
-            </p>
-          </Col>
-        </Row>
-      </Container>
-    </footer>
+    <footer>
+				<div className="bg-dark text-light section-footer-2 position-relative">
+					<div className="container position-relative z-1 border-top border-1 pb-2 pt-4">
+						<div className="text-center">
+							<a className="d-flex main-logo align-items-center justify-content-center mb-3">
+								<img src="assets/imgs/home-page-2/template/favicon.svg" alt="zelio" />
+								<span className="fs-4 ms-2">James.dev</span>
+							</a>
+							<div className="d-flex justify-content-center gap-3">
+                {socialLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label} >
+                      <link.icon size={18} />
+                  </a>
+                ))}
+							</div>
+							<div className="navigation d-flex align-items-center justify-content-center flex-wrap gap-4 my-4">
+								<a href="#about" className="fs-6"> About me </a>
+								<a href="#resume" className="fs-6"> Resume </a>
+								<a href="#services" className="fs-6"> Services </a>
+								<a href="#portfolio" className="fs-6"> Portfolio </a>
+								<a href="#blog" className="fs-6"> Blog </a>
+								<a href="#contact" className="fs-6"> Contact </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
   );
 };
