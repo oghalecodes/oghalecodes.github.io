@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
@@ -16,6 +16,34 @@ interface BlogPost {
   slug: string;
   tags: string[];
 }
+
+// Client-only date component to prevent hydration issues
+const SafeDate: React.FC<{ date: string }> = ({ date }) => {
+  const [formattedDate, setFormattedDate] = useState<string>(date);
+  
+  useEffect(() => {
+    // Only format the date on the client side after hydration
+    const formatDate = (dateString: string) => {
+      const dateObj = new Date(dateString + 'T00:00:00.000Z');
+      const options: Intl.DateTimeFormatOptions = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC'
+      };
+      
+      try {
+        return dateObj.toLocaleDateString('en-US', options);
+      } catch (error) {
+        return dateString;
+      }
+    };
+    
+    setFormattedDate(formatDate(date));
+  }, [date]);
+  
+  return <span suppressHydrationWarning={true}>{formattedDate}</span>;
+};
 
 export const Blog: React.FC = () => {
   // Sample blog posts - you can move this to a separate data file or fetch from CMS
@@ -49,10 +77,6 @@ export const Blog: React.FC = () => {
     }
   ];
 
-  const formatDate = (dateString: string) => {
-    return HydrationDebug.formatDate(dateString);
-  };
-
   return (
     <section id="blog" className="section-padding bg-light">
       <Container>
@@ -84,7 +108,7 @@ export const Blog: React.FC = () => {
                       <div className="d-flex align-items-center gap-3 text-muted mb-2">
                         <small className="d-flex align-items-center gap-1">
                           <Calendar size={14} />
-                          {formatDate(post.date)}
+                          <SafeDate date={post.date} />
                         </small>
                         <small className="d-flex align-items-center gap-1">
                           <Clock size={14} />

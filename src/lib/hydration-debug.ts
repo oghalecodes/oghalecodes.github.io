@@ -25,12 +25,7 @@ export const HydrationDebug = {
 
   // Safe date formatting that won't cause hydration issues
   formatDate: (date: string | Date, options?: Intl.DateTimeFormatOptions) => {
-    if (typeof window === 'undefined') {
-      // Return a consistent format for SSR
-      return new Date(date).toISOString().split('T')[0];
-    }
-    
-    // Client-side formatting
+    // Use the same formatting for both server and client
     const defaultOptions: Intl.DateTimeFormatOptions = {
       year: 'numeric',
       month: 'long',
@@ -38,7 +33,9 @@ export const HydrationDebug = {
       timeZone: 'UTC'
     };
     
-    return new Date(date).toLocaleDateString('en-US', options || defaultOptions);
+    // Create date with UTC to ensure consistency
+    const utcDate = new Date(date + 'T00:00:00.000Z');
+    return utcDate.toLocaleDateString('en-US', options || defaultOptions);
   },
 
   // Safe year getter
