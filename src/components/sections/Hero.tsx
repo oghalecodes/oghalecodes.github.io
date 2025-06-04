@@ -50,8 +50,8 @@ export const Hero: React.FC = () => {
 																	<img 
 																		src={tool.image} 
 																		alt={tool.alt || tool.label} 
-																		width={40} 
-																		height={40}
+																		width={38} 
+																		height={38}
 																		className="tech-icon"
 																	/>
 																</div>

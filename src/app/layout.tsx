@@ -8,6 +8,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { NavbarWrapper } from '../components/NavbarWrapper';
 import ImageHoverEffects from '@/components/elements/ImageHoverEffects';
 import ScrollToTop from '@/components/elements/ScrollToTop';
+import DataBg from '@/components/elements/DataBg';
 
 const urbanist = Urbanist({
   weight: ['300', '400', '500', '600', '700'],
@@ -77,6 +78,7 @@ export default function RootLayout({
       </head>
       <body className={`home-page-2 ${urbanist.className} ${urbanist.variable} ${playfair_display.variable} ${dmMono.variable}`} suppressHydrationWarning>
         <ImageHoverEffects />
+        <DataBg />
         <ErrorBoundary>
           <ThemeProvider>
             <NavbarWrapper />
