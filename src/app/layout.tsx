@@ -6,6 +6,8 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { Footer } from '@/components/Footer';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { NavbarWrapper } from '../components/NavbarWrapper';
+import ImageHoverEffects from '@/components/elements/ImageHoverEffects';
+import ScrollToTop from '@/components/elements/ScrollToTop';
 
 const urbanist = Urbanist({
   weight: ['300', '400', '500', '600', '700'],
@@ -74,11 +76,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`home-page-2 ${urbanist.className} ${urbanist.variable} ${playfair_display.variable} ${dmMono.variable}`} suppressHydrationWarning>
+        <ImageHoverEffects />
         <ErrorBoundary>
           <ThemeProvider>
             <NavbarWrapper />
             <main>{children}</main>
             <Footer />
+            <ScrollToTop showProgress={true} />
           </ThemeProvider>
         </ErrorBoundary>
       </body>

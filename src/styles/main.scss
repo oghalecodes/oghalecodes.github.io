@@ -884,66 +884,80 @@ img {
   cursor: pointer;
   display: block;
   border-radius: 10px;
-  box-shadow: inset 0 0 0 0.1rem rgba(227, 229, 233, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1010;
   opacity: 0;
   visibility: hidden;
   transform: translateY(0.75rem);
-  transition: all 0.2s linear, margin-right 0s;
-  background-color: #6e4ef2;
-}
-.btn-scroll-top:after {
-  position: absolute;
-  font-family: "remixicon";
-  content: "\ea76";
-  text-align: center;
-  line-height: 3rem;
-  font-size: 1.5rem;
-  color: #ffffff;
-  left: 0;
-  top: 0;
-  height: 3rem;
-  width: 3rem;
-  cursor: pointer;
-  display: block;
-  z-index: 1;
-  transition: all 0.2s linear;
-}
-.btn-scroll-top.active-progress {
-  visibility: visible;
-  transform: translateY(0);
-}
-@media (min-width: 320px) {
-  .btn-scroll-top.active-progress {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(var(--bs-primary-rgb));
+  border: none;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgb(var(--bs-primary-rgb));
+  }
+
+  &.active-progress {
+    visibility: visible;
+    transform: translateY(0);
     opacity: 1;
   }
+
+  // Theme-aware variants
+  &.style-btn-2 {
+    background-color: rgb(var(--bs-light-rgb));
+    border: 1px solid rgb(var(--bs-border-color-rgb));
+
+    svg, .text-white {
+      color: rgb(var(--bs-primary-rgb)) !important;
+    }
+
+    &:hover {
+      background-color: rgb(var(--bs-primary-rgb));
+      
+      svg, .text-white {
+        color: white !important;
+      }
+    }
+  }
+
+  &.style-btn-3 {
+    background-color: transparent;
+    border: 2px solid rgb(var(--bs-primary-rgb));
+
+    svg, .text-white {
+      color: rgb(var(--bs-primary-rgb)) !important;
+    }
+
+    &:hover {
+      background-color: rgb(var(--bs-primary-rgb));
+      
+      svg, .text-white {
+        color: white !important;
+      }
+    }
+  }
+
+  // Dark theme adjustments
+  [data-bs-theme="dark"] & {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    &.style-btn-2 {
+      background-color: rgb(var(--bs-dark-rgb));
+      border-color: rgb(var(--bs-border-color-rgb));
+    }
+  }
 }
-.btn-scroll-top svg path {
-  fill: none;
-}
-.btn-scroll-top svg.progress-square path {
-  stroke: #1f1f24;
-  stroke-width: 1;
-  box-sizing: border-box;
-  transition: all 0.2s linear;
-}
-.btn-scroll-top.style-btn-2 {
-  background-color: #ffffff;
-}
-.btn-scroll-top.style-btn-2:after {
-  color: #62a92b;
-}
-.btn-scroll-top.style-btn-2 svg.progress-square path {
-  stroke: #62a92b;
-}
-.btn-scroll-top.style-btn-3 {
-  background-color: #ffffff;
-}
-.btn-scroll-top.style-btn-3:after {
-  color: #be6895;
-}
-.btn-scroll-top.style-btn-3 svg.progress-square path {
-  stroke: #be6895;
+
+// Progress circle animation
+.btn-scroll-top svg circle {
+  transition: stroke-dashoffset 0.1s ease;
 }
 
 .zelio .btn {
