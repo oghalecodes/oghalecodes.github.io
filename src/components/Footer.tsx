@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
+import { getSocialLinks } from '@/data/socialLinks';
 
 export const Footer: React.FC = () => {
   const [mounted, setMounted] = useState(false);
@@ -14,23 +15,7 @@ export const Footer: React.FC = () => {
     setCurrentYear(new Date().getFullYear().toString());
   }, []);
 
-  const socialLinks = [
-    {
-      icon: Github,
-      href: 'https://github.com/yourusername',
-      label: 'GitHub'
-    },
-    {
-      icon: Linkedin,
-      href: 'https://linkedin.com/in/yourusername',
-      label: 'LinkedIn'
-    },
-    {
-      icon: Mail,
-      href: 'mailto:your.email@example.com',
-      label: 'Email'
-    }
-  ];
+  const socialLinks = getSocialLinks();
 
   return (
     <footer>
@@ -38,8 +23,8 @@ export const Footer: React.FC = () => {
 					<div className="container position-relative z-1 border-top border-1 pb-2 pt-4">
 						<div className="text-center">
 							<a className="d-flex main-logo align-items-center justify-content-center mb-3">
-								<img src="assets/imgs/home-page-2/template/favicon.svg" alt="zelio" />
-								<span className="fs-4 ms-2">James.dev</span>
+								<img src="/images/personal-logo.svg" alt="iamoghale" className="w-40 h-auto" />
+								<span className="fs-4 ms-2">IAMOGHALE</span>
 							</a>
 							<div className="d-flex justify-content-center gap-3">
                 {socialLinks.map((link, index) => (

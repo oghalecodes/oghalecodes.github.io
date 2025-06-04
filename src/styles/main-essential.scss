@@ -1,0 +1,304 @@
+/*===========
+   Theme Name: AliThemes - Bootstrap Dev Starter (Essential Components Only)
+   Author : alithemes
+   Support: https://alithemes.ticksy.com
+   Version: 1.0 (Optimized)
+==============*/
+
+// Import theme variables from globals.scss
+// CSS variables are defined in globals.scss to avoid duplication
+
+// SCSS Mixins for better maintainability
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin button-reset {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@mixin shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: var(--tc-shadow-1);
+  } @else if $level == 2 {
+    box-shadow: var(--tc-shadow-2);
+  }
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 767px) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1024px) { @content; }
+  }
+}
+
+// Essential theme styles
+.zelio {
+  // Button styles
+  .btn {
+    @include transition();
+    font-family: var(--font-urbanist), sans-serif;
+    font-weight: var(--tc-fw-medium);
+    border-radius: 8px;
+    padding: 12px 24px;
+    
+    &.btn-primary {
+      background: var(--tc-theme-primary-1);
+      border-color: var(--tc-theme-primary-1);
+      color: white;
+      
+      &:hover {
+        background: var(--tc-theme-primary-2);
+        border-color: var(--tc-theme-primary-2);
+      }
+    }
+    
+    &.btn-gradient {
+      background: var(--tc-linear-1);
+      border: none;
+      color: white;
+      
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+    
+    &.btn-outline-secondary {
+      border-color: var(--tc-neutral-600);
+      color: var(--tc-neutral-600);
+      
+      &:hover {
+        background-color: var(--tc-neutral-600);
+        color: white;
+      }
+    }
+  }
+  
+  // Avatar styles
+  .avatar {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    &.avatar-xs {
+      width: 32px;
+      height: 32px;
+    }
+    
+    &.avatar-sm {
+      width: 48px;
+      height: 48px;
+    }
+    
+    &.avatar-md {
+      width: 64px;
+      height: 64px;
+    }
+    
+    &.avatar-lg {
+      width: 96px;
+      height: 96px;
+    }
+  }
+  
+  // Card styles
+  .card {
+    border-radius: 12px;
+    border: 1px solid var(--tc-neutral-200);
+    @include shadow(1);
+    @include transition();
+    
+    &:hover {
+      @include shadow(2);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Animation classes
+.zoom-img {
+  overflow: hidden;
+  
+  img {
+    @include transition(transform, 0.5s);
+  }
+  
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
+.shine-animate {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  
+  &:before {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    transform: skewX(-25deg);
+    z-index: 1;
+  }
+}
+
+.shine-animate-item:hover .shine-animate:before {
+  animation: hoverShine 1.2s;
+}
+
+@keyframes hoverShine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+// Utility animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Animation utility classes
+.fadeInUp2 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.fadeInLeft2 {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.fadeInRight2 {
+  animation: fadeInRight 0.8s ease-out;
+}
+
+// Typography utilities
+.font-weight-black { font-weight: var(--tc-fw-black); }
+.font-weight-extra-bold { font-weight: var(--tc-fw-extra-bold); }
+.font-weight-bold { font-weight: var(--tc-fw-bold); }
+.font-weight-semi-bold { font-weight: var(--tc-fw-semi-bold); }
+.font-weight-medium { font-weight: var(--tc-fw-medium); }
+.font-weight-regular { font-weight: var(--tc-fw-regular); }
+.font-weight-light { font-weight: var(--tc-fw-light); }
+
+// Font size utilities
+.fs-1 { font-size: var(--tc-fs-1); }
+.fs-2 { font-size: var(--tc-fs-2); }
+.fs-3 { font-size: var(--tc-fs-3); }
+.fs-4 { font-size: var(--tc-fs-4); }
+.fs-5 { font-size: var(--tc-fs-5); }
+.fs-6 { font-size: var(--tc-fs-6); }
+.fs-7 { font-size: var(--tc-fs-7); }
+.fs-8 { font-size: var(--tc-fs-8); }
+
+// Color utilities
+.text-primary-1 { color: var(--tc-theme-primary-1); }
+.text-primary-2 { color: var(--tc-theme-primary-2); }
+.text-primary-3 { color: var(--tc-theme-primary-3); }
+.text-secondary-1 { color: var(--tc-theme-secondary-1); }
+.text-secondary-3 { color: var(--tc-theme-secondary-3); }
+
+// Background utilities
+.bg-primary-1 { background-color: var(--tc-theme-primary-1); }
+.bg-primary-2 { background-color: var(--tc-theme-primary-2); }
+.bg-primary-3 { background-color: var(--tc-theme-primary-3); }
+.bg-gradient-1 { background: var(--tc-linear-1); }
+.bg-gradient-2 { background: var(--tc-linear-2); }
+
+// Responsive utilities
+@include responsive(mobile) {
+  .fs-1 { font-size: calc(var(--tc-fs-1) * 0.8); }
+  .fs-2 { font-size: calc(var(--tc-fs-2) * 0.8); }
+  .fs-3 { font-size: calc(var(--tc-fs-3) * 0.8); }
+}
+
+// Dark theme support
+[data-bs-theme="dark"] {
+  .zelio {
+    .btn {
+      &.btn-primary {
+        background: var(--tc-theme-dark-primary-1);
+        border-color: var(--tc-theme-dark-primary-1);
+      }
+    }
+    
+    .card {
+      border-color: var(--tc-neutral-dark-600);
+      background-color: var(--tc-bg-dark-2);
+    }
+  }
+  
+  .text-primary-1 { color: var(--tc-theme-dark-primary-1); }
+  .text-primary-2 { color: var(--tc-theme-dark-primary-2); }
+  .text-primary-3 { color: var(--tc-theme-dark-primary-3); }
+  .text-secondary-1 { color: var(--tc-theme-dark-secondary-1); }
+  .text-secondary-3 { color: var(--tc-theme-dark-secondary-3); }
+  
+  .bg-primary-1 { background-color: var(--tc-theme-dark-primary-1); }
+  .bg-primary-2 { background-color: var(--tc-theme-dark-primary-2); }
+  .bg-primary-3 { background-color: var(--tc-theme-dark-primary-3); }
+  .bg-gradient-1 { background: var(--tc-linear-dark-1); }
+  .bg-gradient-2 { background: var(--tc-linear-dark-2); }
+}
