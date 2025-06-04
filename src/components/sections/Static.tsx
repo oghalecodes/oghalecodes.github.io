@@ -2,8 +2,11 @@
 'use client'
 import { CalendarClock, HeartPulse, Medal, Presentation } from 'lucide-react'
 import CountUp from 'react-countup'
+import { getYearsOfExperience } from '@/data/personal'
 
 export default function Static() {
+	const yearsOfExperience = getYearsOfExperience();
+	
 	return (
 		<>
 			<div className="section-static-1 z-0">
@@ -16,7 +19,7 @@ export default function Static() {
 										<div className="content mx-auto">
 											<CalendarClock className='text-primary-2' />
 											<h2 className="text-300 my-0 fs-50">
-												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={12} />
+												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={yearsOfExperience} />
 												<span className="fs-50 text-300 mb-0">+</span>
 											</h2>
 											<p className="fs-6 mb-0 text-dark">Year Experience</p>

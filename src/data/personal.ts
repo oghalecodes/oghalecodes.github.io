@@ -7,12 +7,22 @@ export const personalInfo = {
   github: "https://github.com/yourusername",
   linkedin: "https://linkedin.com/in/yourusername",
   resume: "/resume.pdf",
+  careerStartDate: "2017-01-01", // Update this to your actual career start date
   bio: `Passionate full-stack developer with 8+ years of experience 
         building scalable web applications and leading development teams. 
         I specialize in React, Node.js, and cloud technologies.`,
   longBio: `I'm a passionate senior software engineer with over 8 years of experience 
            in building robust, scalable web applications. My journey started with a 
            curiosity about how things work, which led me to fall in love with coding.`,
+};
+
+// Utility function to calculate years of experience
+export const getYearsOfExperience = (): number => {
+  const startDate = new Date(personalInfo.careerStartDate);
+  const currentDate = new Date();
+  const diffTime = Math.abs(currentDate.getTime() - startDate.getTime());
+  const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
+  return diffYears;
 };
 
 export const skills = {
