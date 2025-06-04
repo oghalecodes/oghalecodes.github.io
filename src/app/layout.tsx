@@ -80,7 +80,7 @@ export default function RootLayout({
         <ErrorBoundary>
           <ThemeProvider>
             <NavbarWrapper />
-            <main>{children}</main>
+            <main className="main">{children}</main>
             <Footer />
             <ScrollToTop showProgress={true} />
           </ThemeProvider>

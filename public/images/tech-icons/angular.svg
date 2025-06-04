@@ -1,0 +1,6 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="16,2 30,11 30,21 16,30 2,21 2,11" fill="#DD0031"/>
+  <polygon points="16,2 16,30 30,21 30,11" fill="#C3002F"/>
+  <polygon points="16,6 24,11 24,21 16,26 8,21 8,11" fill="white"/>
+  <text x="16" y="19" text-anchor="middle" fill="#DD0031" font-family="Arial, sans-serif" font-size="6" font-weight="bold">A</text>
+</svg>

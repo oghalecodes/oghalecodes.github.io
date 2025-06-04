@@ -442,6 +442,57 @@ img {
 .zoom-img:hover img {
   transform: scale(1.05);
 }
+
+/* Tech Icons Styling */
+.tech-icon {
+  filter: brightness(0.8);
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+/* Light theme tech icons */
+[data-bs-theme="light"] .tech-icon {
+  filter: brightness(0.7) contrast(1.1);
+}
+
+/* Dark theme tech icons */
+[data-bs-theme="dark"] .tech-icon {
+  filter: brightness(1.2) contrast(0.9);
+}
+
+/* Hover effects for tech icons */
+.brand-logo:hover .tech-icon {
+  filter: brightness(1) contrast(1) saturate(1.2);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Enhanced carousel ticker styling for tech icons */
+.carouselTicker__item .brand-logo {
+  background-color: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.carouselTicker__item .brand-logo:hover {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Dark theme carousel adjustments */
+[data-bs-theme="dark"] .carouselTicker__item .brand-logo {
+  background-color: var(--bs-dark);
+  border-color: var(--bs-border-color-translucent);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .carouselTicker__item .brand-logo:hover {
+  background-color: var(--bs-primary);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+}
 @keyframes hoverShine {
   100% {
     left: 125%;
