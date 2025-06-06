@@ -2,7 +2,7 @@
 'use client'
 import { CalendarClock, HeartPulse, Medal, Presentation } from 'lucide-react'
 import CountUp from 'react-countup'
-import { getYearsOfExperience } from '@/data/personal'
+import { getYearsOfExperience, personalInfo } from '@/data/personal'
 
 export default function Static() {
 	const yearsOfExperience = getYearsOfExperience();
@@ -31,7 +31,7 @@ export default function Static() {
 										<div className="content mx-auto">
 											<Presentation className='text-primary-2'/>
 											<h2 className="text-300 my-0 fs-50">
-												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={250} />
+												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={personalInfo.projectsCompleted} />
 												<span className="fs-50 text-300 mb-0">+</span>
 											</h2>
 											<p className="fs-6 mb-0 text-dark">Projects Completed</p>
@@ -43,7 +43,7 @@ export default function Static() {
 										<div className="content mx-auto">
 											<HeartPulse className='text-primary-2'/>
 											<h2 className="text-300 my-0 fs-50">
-												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={680} />
+												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={personalInfo.statisfiedClient} />
 												<span className="fs-50 text-300 mb-0">+</span>
 											</h2>
 											<p className="fs-6 mb-0 text-dark">Satisfied Clients</p>
@@ -55,7 +55,7 @@ export default function Static() {
 										<div className="content mx-auto">
 											<Medal className='text-primary-2' />
 											<h2 className="text-300 my-0 fs-50">
-												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={18} />
+												<CountUp className="odometer text-dark fw-medium" enableScrollSpy={true} end={personalInfo.awards} />
 												<span className="fs-50 text-300 mb-0">+</span>
 											</h2>
 											<p className="fs-6 mb-0 text-dark">Awards Winner</p>

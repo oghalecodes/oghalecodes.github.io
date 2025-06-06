@@ -14179,6 +14179,18 @@ strong {
   transition: all 0.3s ease;
 }
 
+// Service icon hover effects for both Lucide and SVG icons
+.section-service-2 .card-servies-2 .service-icon {
+  transition: all 0.3s ease;
+}
+.section-service-2 .card-servies-2:hover .service-icon {
+  color: #62a92b !important;
+  stroke: #62a92b !important;
+}
+.section-service-2 .card-servies-2:hover .service-icon path {
+  fill: #62a92b !important;
+}
+
 .section-experience .technology:hover {
   background-color: #c0dcbc !important;
 }

@@ -8,6 +8,9 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/yourusername",
   resume: "/resume.pdf",
   careerStartDate: "2017-01-01", // Update this to your actual career start date
+  projectsCompleted: 50, // Update this with your actual number of completed projects
+  statisfiedClient: 15, // Update this with your actual number of satisfied clients
+  awards: 5, // Update this with your actual number of awards
   bio: `Passionate full-stack developer with 8+ years of experience 
         building scalable web applications and leading development teams. 
         I specialize in React, Node.js, and cloud technologies.`,

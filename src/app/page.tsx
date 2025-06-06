@@ -7,6 +7,8 @@ import {
   Blog, 
   Contact 
 } from '@/components/sections';
+import Coporation from '@/components/sections/Coporation';
+import Service from '@/components/sections/Service';
 import Static from '@/components/sections/Static';
 
 export default function Home() {
@@ -14,6 +16,7 @@ export default function Home() {
     <>
       <Hero />
       <Static />
+      <Service />
       <About />
       <Skills />
       <Projects />
