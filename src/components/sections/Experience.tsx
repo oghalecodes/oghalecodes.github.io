@@ -1,10 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Building } from 'lucide-react';
-import { ClientOnlyMotion } from '../ClientOnlyMotion';
+import Link from 'next/link'
 
 interface ExperienceItem {
   id: number;
@@ -17,141 +14,156 @@ interface ExperienceItem {
 }
 
 export const Experience: React.FC = () => {
+  const [selectedExperience, setSelectedExperience] = React.useState(0);
   const experiences: ExperienceItem[] = [
     {
       id: 1,
       title: 'Senior Software Engineer',
-      company: 'Tech Innovations Inc.',
-      location: 'San Francisco, CA',
-      period: 'Jan 2022 - Present',
+      company: 'JANA Corporation',
+      location: 'Ontario, Canada',
+      period: 'Nov 2022 - Present',
       description: [
-        'Lead a team of 5 developers in building scalable web applications',
-        'Architected and implemented microservices using Node.js and Docker',
-        'Improved application performance by 40% through code optimization',
-        'Mentored junior developers and conducted code reviews'
+        'Led initiative with team members to develop digital solutions using Agile methodologies, estimating, architecting, designing software solutions.',
+        'Leverage expertise in backend technologies and JavaScript frameworks to design and implement end-to-end solutions.',
+        'Increased application performance by 35% by refactoring existing .Net Core codebase and implementing performance monitoring.',
+        'Led strategic planning, requirements gathering and implementation of new features with focus on algorithms optimization, data science using agile scrum development methodologies.'
       ],
-      technologies: ['React', 'Node.js', 'TypeScript', 'AWS', 'Docker', 'PostgreSQL']
+      technologies: ['C#', 'MSSQL', 'TypeScript', 'Python', 'Azure', '.NET Core']
     },
     {
       id: 2,
-      title: 'Full Stack Developer',
-      company: 'Digital Solutions LLC',
-      location: 'New York, NY',
-      period: 'Mar 2020 - Dec 2021',
+      title: 'Lead Software Engineer',
+      company: 'Leatherback UK',
+      location: 'Remote',
+      period: 'Feb 2022 - Nov 2022',
       description: [
-        'Developed and maintained multiple client-facing web applications',
-        'Collaborated with UX/UI designers to implement responsive designs',
-        'Integrated third-party APIs and payment gateways',
-        'Implemented CI/CD pipelines using GitHub Actions'
+        'Integrated global payment API related service providers like Clear bank, Currency cloud, Stripe, MasterCard, Plaid and Providus, providing multicurrency accounts for payouts, collections, funding and exchange.',
+        'Designed and developed a payment-as-a-service infrastructure, serving over 100 internal and external clients.',
+        'Built a multi-tenant settlement engine that processes customer cash settlement across various time zones',
+        'Led Epics to deliver sub products and initiatives end to end using the agile development framework.'
       ],
-      technologies: ['Vue.js', 'Express.js', 'MongoDB', 'Azure', 'Jest', 'Cypress']
+      technologies: ['C#', 'Azure', 'VueJs', 'PostgreSQL', 'Typescript', 'Docker', 'Kubernetes', 'AWS']
     },
     {
       id: 3,
-      title: 'Software Developer',
-      company: 'StartupXYZ',
-      location: 'Austin, TX',
-      period: 'Jun 2018 - Feb 2020',
+      title: 'Software Architect',
+      company: 'PayPecker',
+      location: 'Lagos, Nigeria',
+      period: 'Jul 2021 - Feb 2022',
       description: [
-        'Built MVP for a social media platform from scratch',
-        'Developed real-time chat functionality using Socket.io',
-        'Optimized database queries resulting in 60% faster load times',
-        'Participated in agile development and sprint planning'
+        'Implemented a Multi-Processor/Multi-Flow Payment Service which processes merchant payments through third party Payment Service integrations that resulted in a 10% reduction in transaction failure by allowing a dynamic and configurable payment processor',
+        'Provided support to 3rd party vendors who utilized our services by integrating their countries payment systems, and other requirements.',
+        'Ensured 100% code coverage through unit test and integration tests for all critical use cases.',
+        'Reviewed and revised software designs to ensure technical compliance and propose architectural improvements.',
+        'Develop, deploy, and maintain microservices using containerization technologies such as Docker and orchestration platforms like Kubernetes.'
       ],
-      technologies: ['React', 'Node.js', 'Socket.io', 'MySQL', 'Redis', 'Git']
+      technologies: ['C#', 'PostgreSQL', 'AWS', 'Javascript', 'Docker', 'Kubernetes', 'PHP']
     },
     {
       id: 4,
-      title: 'Junior Web Developer',
-      company: 'Web Agency Pro',
-      location: 'Chicago, IL',
-      period: 'Aug 2017 - May 2018',
+      title: 'Senior Software Engineer (Team Lead)',
+      company: 'Access Bank Plc',
+      location: 'Lagos, Nigeria',
+      period: 'Aug 2018 - Jul 2021',
       description: [
-        'Developed responsive websites for small to medium businesses',
-        'Maintained and updated existing client websites',
-        'Collaborated with design team to implement pixel-perfect layouts',
-        'Learned modern web development best practices'
+        'Developed Tamara, the banks artificial intelligent chatbot using Microsoft Azure technologies/cloud infrastructure Azure Bot Framework, App Service and Azure VM which reduced customer-human agent interaction by 200%.',
+        'Supported the Access-Diamond bank merger by developing Integration API  a .Net MVC APIs for Payment Processing; rebuilt Tamada – an enhanced AI chatbot using Google GCP services.',
+        'Strengthened partnership with Telecom Operator by building an API gateway for improved USSD Unstructured Supplementary Service Data) Banking Services that lead to a 40% failure rate reduction.',
+        'Worked in the implementation a multi-channel Payment system used to process direct merchant payment transactions.',
+        'Implemented a location-based (front-end and backend) search functionality allowing over 1 million users to search for Branch/ATM, place of interest based on the distance from their current location using the longitude/latitude data provided by the geo-names data feed and the geography data type.',
+        'Enhanced the product with innovative ideas which led to a 30% increase in user satisfaction.'
       ],
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'WordPress', 'Bootstrap']
+      technologies: ['C#', 'Azure', 'Angular', 'MSSQL', 'MongoDB', 'Redis', 'Bootstrap']
+    },
+    {
+      id: 5,
+      title: 'Software Developer',
+      company: 'Parkway Project LTD',
+      location: 'Lagos, Nigeria',
+      period: 'Mar 2017 - May 2018',
+      description: [
+        'Refined technical support for payment collection platform BankCollect) used by various top tier financial institution.',
+        'Successfully designed and built plugins for payment platform; Bank3D (https://bank3d.ng)',
+        'Drove collaboration and team-wide communication by leading and moderating weekly review meetings.',
+        'Used Scrum Agile Methodology at work involving daily scrum meetings, planning pokers, sprint backlog, 1on1 meetings.'
+      ],
+      technologies: ['C#', 'Angular', 'MSSQL', 'Javascript', 'WebForms', 'Bootstrap']
     }
   ];
 
   return (
-    <section id="experience" className="section-padding">
-      <Container>
-        <ClientOnlyMotion
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-5"
-        >
-          <h2 className="display-5 fw-bold mb-3">Work Experience</h2>
-          <p className="lead text-muted">
-            My professional journey as a software engineer
-          </p>
-        </ClientOnlyMotion>
+		<>
 
-        <div className="timeline position-relative">
-          {experiences.map((experience, index) => (
-            <div key={experience.id} className="timeline-item mb-5">
-              <ClientOnlyMotion
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="timeline-content"
-              >
-                <Card className="shadow-sm card-hover">
-                  <Card.Body>
-                    <div className="d-flex justify-content-between align-items-start mb-3">
-                      <div>
-                        <h4 className="fw-bold text-primary mb-1">
-                          {experience.title}
-                        </h4>
-                        <h5 className="fw-semibold mb-2 d-flex align-items-center gap-2">
-                          <Building size={18} />
-                          {experience.company}
-                        </h5>
-                      </div>
-                      <div className="text-end">
-                        <div className="d-flex align-items-center gap-1 text-muted mb-1">
-                          <Calendar size={16} />
-                          <small>{experience.period}</small>
-                        </div>
-                        <div className="d-flex align-items-center gap-1 text-muted">
-                          <MapPin size={16} />
-                          <small>{experience.location}</small>
-                        </div>
-                      </div>
-                    </div>
+			<section id="portfolio" className="section-experience pt-5">
+				<div className="container">
+					<div className="rounded-3 border border-1 position-relative overflow-hidden">
+						<div className="box-linear-animation position-relative z-1">
+							<div className="p-lg-8 p-md-6 p-3 position-relative z-1">
+								<div className="d-flex align-items-center">
+									<svg className="text-primary-2 me-2" xmlns="http://www.w3.org/2000/svg" width={5} height={6} viewBox="0 0 5 6" fill="none">
+										<circle cx="2.5" cy={3} r="2.5" fill="#A8FF53" />
+									</svg>
+									<span className="text-linear-4 d-flex align-items-center"> Expericence </span>
+								</div>
+								<h3>
+									8+
+									<span className="text-300"> years of </span>
+									passion
+									<span className="text-300"> for <br />
+										programming techniques
+									</span>
+								</h3>
+								<div className="row mt-5">
+									<div className="col-lg-4">
+										<div className="d-flex flex-column gap-2">
+											{experiences.map((exp, index) => (
+												<button 
+													key={exp.id} 
+													onClick={() => setSelectedExperience(index)}
+													className={`technology border border-1 rounded-3 p-3 text-start bg-transparent ${selectedExperience === index ? 'border-primary-2 bg-primary-2 bg-opacity-10' : ''}`}
+													style={{cursor: 'pointer'}}
+												>
+													<div className="d-flex align-items-center gap-2">
+														<div className={`rounded-circle d-flex align-items-center justify-content-center ${selectedExperience === index ? 'bg-primary-2 text-dark' : 'bg-secondary text-white'}`} style={{width: '40px', height: '40px', minWidth: '40px'}}>
+															<span className="fw-bold">{exp.company.charAt(0)}</span>
+														</div>
+														<div className="d-flex flex-column ms-2">
+															<h5 className={`mb-1 ${selectedExperience === index ? 'text-primary-2' : ''}`}>{exp.company}</h5>
+															<span className="text-300">{exp.period}</span>
+														</div>
+													</div>
+												</button>
+											))}
+										</div>
+									</div>
+									<div className="col-lg-8 ps-lg-5 mt-5 mt-lg-0">
+										<h6 className="text-linear-4">{experiences[selectedExperience].title}</h6>
+										<p className="text-300 mb-3">{experiences[selectedExperience].company} • {experiences[selectedExperience].location}</p>
+										<ul className="mt-4">
+											{experiences[selectedExperience].description.map((desc, index) => (
+												<li key={index} className="text-dark mb-3">
+													{desc.includes('performance') || desc.includes('35%') || desc.includes('40%') || desc.includes('45%') || desc.includes('60%') || desc.includes('30%') ? (
+														<span dangerouslySetInnerHTML={{
+															__html: desc.replace(/(35%|40%|45%|60%|30%|performance)/gi, '<span class="text-secondary-2">$1</span>')
+														}} />
+													) : desc}
+												</li>
+											))}
+										</ul>
+										<div className="d-flex flex-wrap align-items-center gap-3 mt-7">
+											{experiences[selectedExperience].technologies.map((tech, index) => (
+												<span key={index} className="text-300 border border-1 px-3 py-1 rounded-2">{tech}</span>
+											))}
+										</div>
+									</div>
+								</div>
+							</div>
+							<img className="position-absolute top-0 start-0 z-0" src="images/bg/bg_3.png" alt="zelio" />
+						</div>
+					</div>
+				</div>
+			</section>
 
-                    <ul className="list-unstyled mb-3">
-                      {experience.description.map((item, itemIndex) => (
-                        <li key={itemIndex} className="mb-2">
-                          <span className="text-primary me-2">▸</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="d-flex flex-wrap gap-1">
-                      {experience.technologies.map((tech, techIndex) => (
-                        <span 
-                          key={techIndex}
-                          className="badge bg-light text-dark border"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </Card.Body>
-                </Card>
-              </ClientOnlyMotion>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
+		</>
+	);
 };

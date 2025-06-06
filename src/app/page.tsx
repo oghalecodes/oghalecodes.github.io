@@ -1,9 +1,9 @@
 import { 
   Hero, 
-  About, 
   Skills, 
   Projects, 
-  Experience, 
+  Experience,
+  Education,
   Blog, 
   Contact 
 } from '@/components/sections';
@@ -17,10 +17,10 @@ export default function Home() {
       <Hero />
       <Static />
       <Service />
-      <About />
-      <Skills />
-      <Projects />
       <Experience />
+      <Education />
+      <Projects />
+      <Skills />
       <Blog />
       <Contact />
     </>
