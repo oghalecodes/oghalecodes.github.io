@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { ClientOnlyMotion } from '../ClientOnlyMotion';
 
 export const Contact: React.FC = () => {
@@ -48,190 +47,90 @@ export const Contact: React.FC = () => {
 
   const contactInfo = [
     {
-      icon: Mail,
+      icon: 'ri-mail-fill',
       title: 'Email',
-      value: 'your.email@example.com',
-      link: 'mailto:your.email@example.com'
+      value: 'contact@william.design',
+      link: 'mailto:contact@william.design'
     },
     {
-      icon: Phone,
-      title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      icon: 'ri-phone-fill',
+      title: 'Phone Number',
+      value: '+1-234-567-8901',
+      link: 'tel:+1-234-567-8901'
     },
     {
-      icon: MapPin,
-      title: 'Location',
-      value: 'San Francisco, CA',
-      link: null
+      icon: 'ri-skype-fill',
+      title: 'Skype',
+      value: 'WilliamDesignUX',
+      link: 'skype:WilliamDesignUX?add'
+    },
+    {
+      icon: 'ri-map-2-fill',
+      title: 'Address',
+      value: '0811 Erdman Prairie, Joaville CA',
+      link: 'https://maps.google.com/maps?q=0811+Erdman+Prairie,Joaville+CA'
     }
   ];
 
   return (
-    <section id="contact" className="section-padding">
-      <Container>
-        <ClientOnlyMotion
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-5"
-        >
-          <h2 className="display-5 fw-bold mb-3">Get In Touch</h2>
-          <p className="lead text-muted">
-            Have a project in mind or want to collaborate? I&apos;d love to hear from you!
-          </p>
-        </ClientOnlyMotion>
-
-        <Row>
-          <Col lg={4} className="mb-5">
-            <ClientOnlyMotion
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="fw-bold mb-4">Let&apos;s Connect</h4>
-              <p className="text-muted mb-4">
-                I&apos;m always open to discussing new opportunities, interesting projects, 
-                or just having a chat about technology and development.
-              </p>
-
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <ClientOnlyMotion
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="d-flex align-items-center mb-3"
-                  >
-                    <div className="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
-                      <info.icon size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <h6 className="fw-semibold mb-1">{info.title}</h6>
-                      {info.link ? (
-                        <a 
-                          href={info.link}
-                          className="text-muted text-decoration-none"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-muted mb-0">{info.value}</p>
-                      )}
-                    </div>
-                  </ClientOnlyMotion>
-                ))}
-              </div>
-            </ClientOnlyMotion>
-          </Col>
-
-          <Col lg={8}>
-            <ClientOnlyMotion
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <Card className="shadow-sm">
-                <Card.Body className="p-4">
-                  {showAlert && (
-                    <Alert 
-                      variant={alertType}
-                      dismissible
-                      onClose={() => setShowAlert(false)}
-                    >
-                      {alertType === 'success' 
-                        ? 'Thank you for your message! I&apos;ll get back to you soon.' 
-                        : 'Something went wrong. Please try again later.'
-                      }
-                    </Alert>
-                  )}
-
-                  <Form onSubmit={handleSubmit}>
-                    <Row>
-                      <Col md={6}>
-                        <Form.Group className="mb-3">
-                          <Form.Label>Name *</Form.Label>
-                          <Form.Control
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            required
-                            placeholder="Your full name"
-                          />
-                        </Form.Group>
-                      </Col>
-                      <Col md={6}>
-                        <Form.Group className="mb-3">
-                          <Form.Label>Email *</Form.Label>
-                          <Form.Control
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                            placeholder="your.email@example.com"
-                          />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-
-                    <Form.Group className="mb-3">
-                      <Form.Label>Subject *</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="What's this about?"
-                      />
-                    </Form.Group>
-
-                    <Form.Group className="mb-4">
-                      <Form.Label>Message *</Form.Label>
-                      <Form.Control
-                        as="textarea"
-                        rows={5}
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="Tell me about your project or just say hello!"
-                      />
-                    </Form.Group>
-
-                    <Button 
-                      type="submit" 
-                      variant="primary" 
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="d-flex align-items-center gap-2"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <span className="spinner-border spinner-border-sm" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send size={20} />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                  </Form>
-                </Card.Body>
-              </Card>
-            </ClientOnlyMotion>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+    <>
+			<section id="contact" className="section-contact-2 position-relative pb-60 overflow-hidden">
+				<div className="container position-relative z-1">
+					<div className="row align-items-center">
+						<div className="col-lg-7 pb-5 pb-lg-0">
+							<div className="position-relative">
+								<div className="position-relative z-2">
+									<h3 className="text-primary-2 mb-3">Let’s connect</h3>
+									<form action="#">
+										<div className="row g-3">
+											<div className="col-md-6 ">
+												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="name" name="name" placeholder="Your name" aria-label="username" />
+											</div>
+											<div className="col-md-6">
+												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="phone" name="phone" placeholder="Phone" aria-label="phone" />
+											</div>
+											<div className="col-md-6">
+												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="email" name="email" placeholder="Emaill" aria-label="email" />
+											</div>
+											<div className="col-md-6">
+												<input type="text" className="form-control bg-3 border border-1 rounded-3" id="subject" name="subject" placeholder="Subject" aria-label="subject" />
+											</div>
+											<div className="col-12">
+												<textarea className="form-control bg-3 border border-1 rounded-3" id="message" name="message" placeholder="Message" aria-label="With textarea" defaultValue={""} />
+											</div>
+											<div className="col-12">
+												<button type="submit" className="btn btn-primary-2 rounded-2">
+													Send Message
+													<i className="ri-arrow-right-up-line" />
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div className="z-0 bg-primary-dark rectangle-bg z-1 rounded-3" />
+							</div>
+						</div>
+						<div className="col-lg-5 d-flex flex-column ps-lg-8">
+							{contactInfo.map((contact, index) => (
+								<div key={index} className="d-flex align-items-center mb-3 position-relative d-inline-flex">
+									<div className="d-inline-block">
+										<div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
+											<i className={`${contact.icon} text-primary-2 fs-26`} />
+										</div>
+									</div>
+									<div className="ps-3 h-100">
+										<span className="text-400 fs-6">{contact.title}</span>
+										<h6 className="mb-0">{contact.value}</h6>
+									</div>
+									{contact.link && (
+										<a href={contact.link} className="position-absolute top-0 start-0 w-100 h-100" />
+									)}
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
   );
 };

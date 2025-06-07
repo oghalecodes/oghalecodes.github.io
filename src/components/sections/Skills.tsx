@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link'
+import Marquee from 'react-fast-marquee'
 import React from 'react';
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 import { motion } from 'framer-motion';
@@ -29,60 +31,109 @@ export const Skills: React.FC = () => {
     }
   ];
 
-  return (
-    <section id="skills" className="section-padding">
-      <Container>
-        <ClientOnlyMotion
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-5"
-        >
-          <h2 className="display-5 fw-bold mb-3">Skills & Technologies</h2>
-          <p className="lead text-muted">
-            A comprehensive toolkit built over 8+ years of professional experience
-          </p>
-        </ClientOnlyMotion>
+  // Function to get random skills from all categories
+  const getRandomSkills = (count: number) => {
+    const allSkills = skillCategories.flatMap(category => category.skills);
+    const shuffled = [...allSkills].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
 
-        <Row>
-          {skillCategories.map((category, categoryIndex) => (
-            <Col lg={6} key={categoryIndex} className="mb-5">
-              <ClientOnlyMotion
-                initial={{ opacity: 0, x: categoryIndex % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h4 className="fw-bold mb-3 text-primary">{category.title}</h4>
-                <div className="d-flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <ClientOnlyMotion
-                      key={skillIndex}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ 
-                        duration: 0.4, 
-                        delay: categoryIndex * 0.1 + skillIndex * 0.05 
-                      }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Badge 
-                        bg="light" 
-                        text="dark"
-                        className="skill-badge px-3 py-2 fs-6"
-                      >
-                        {skill}
-                      </Badge>
-                    </ClientOnlyMotion>
-                  ))}
-                </div>
-              </ClientOnlyMotion>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
+  // Get random skills for both marquees
+  const marqueeSkills1 = getRandomSkills(5);
+  const marqueeSkills2 = getRandomSkills(5);
+
+  return (
+    <>
+			<section id="skills" className="section-skills-2 pt-5">
+				<div className="container">
+					<div className="rounded-3 bg-3 border border-1 position-relative overflow-hidden">
+						<div className="position-relative z-1 py-60">
+							<div className="position-relative z-1">
+								<div className="text-center">
+									<div className="d-flex align-items-center justify-content-center">
+										<svg className="text-primary-2 me-2" xmlns="http://www.w3.org/2000/svg" width={5} height={6} viewBox="0 0 5 6" fill="none">
+											<circle cx="2.5" cy={3} r="2.5" fill="#A8FF53" />
+										</svg>
+										<span className="text-linear-4 d-flex align-items-center"> What I Use </span>
+									</div>
+									<h3>My Skills</h3>
+								</div>
+								<div className="container mt-8">
+									<div className="row">
+										<div className="col-lg-6">
+											<div className="row">
+												<div className="col-lg-10 col-md-9 mx-auto overflow-hidden">
+													{/* Carausel Scroll */}
+													<Marquee className="carouselTicker carouselTicker-right position-relative z-1" direction="right">
+														<ul className="carouselTicker__list m-0 list-unstyled">
+															{marqueeSkills1.map((skill, index) => (
+																<li key={index} className="carouselTicker__item mt-6">
+																	<Link href="#" className="brand-logo icon_80 icon-shape rounded-3">
+																		<img src="assets/imgs/home-page-2/hero-1/icon-4.svg" alt="brand" />
+																	</Link>
+																	<span className="tool-tip">{skill}</span>
+																</li>
+															))}
+														</ul>
+													</Marquee>
+												</div>
+												<div className="col-lg-8 col-md-7 col-10 mx-auto overflow-hidden">
+													{/* Carausel Scroll */}
+													<Marquee className="carouselTicker carouselTicker-left position-relative z-1">
+														<ul className="carouselTicker__list m-0 list-unstyled">
+															{marqueeSkills2.map((skill, index) => (
+																<li key={index} className="carouselTicker__item mt-6">
+																	<Link href="#" className="brand-logo icon_80 icon-shape rounded-3">
+																		<img src="assets/imgs/home-page-2/hero-1/icon-7.svg" alt="brand" />
+																	</Link>
+																	<span className="tool-tip">{skill}</span>
+																</li>
+															))}
+														</ul>
+													</Marquee>
+												</div>
+											</div>
+										</div>
+										<div className="col-lg-6 border-start-md mt-lg-0 mt-5">
+											<div className="row">
+												<div className="col-md-10 mx-auto">
+													<div className="h-100 position-relative">
+														<ul className="ps-3 d-flex flex-column justify-content-between h-100 position-relative">
+															{skillCategories.map((category, index) => (
+																<li key={index} className="mb-3">
+																	<div className="d-flex flex-column flex-md-row gap-2">
+																		<p className="text-dark text-nowrap mb-0">{category.title}:</p>
+																		<span className="text-300">{category.skills.join(', ')}</span>
+																	</div>
+																</li>
+															))}
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="position-absolute d-none d-md-block decorate">
+							<div className="rotateme">
+								<div className="circle-1-1" />
+								<div className="circle-1-2 position-absolute top-50 start-50 translate-middle">
+									<svg className="mb-5 position-absolute bottom-0 start-0" xmlns="http://www.w3.org/2000/svg" width={9} height={9} viewBox="0 0 9 9" fill="none">
+										<circle cx="4.5" cy="4.5" r="4.5" fill="#636366" />
+									</svg>
+								</div>
+								<div className="circle-1-3 position-absolute top-50 start-50 translate-middle ">
+									<svg className="mb-3 position-absolute bottom-0 end-0" xmlns="http://www.w3.org/2000/svg" width={9} height={9} viewBox="0 0 9 9" fill="none">
+										<circle cx="4.5" cy="4.5" r="4.5" fill="#636366" />
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
   );
 };

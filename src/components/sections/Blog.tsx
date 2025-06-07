@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { ClientOnlyMotion } from '../ClientOnlyMotion';
 import { HydrationDebug } from '@/lib/hydration-debug';
+import Link from 'next/link';
 
 interface BlogPost {
   id: number;
@@ -78,104 +79,54 @@ export const Blog: React.FC = () => {
   ];
 
   return (
-    <section id="blog" className="section-padding bg-light">
-      <Container>
-        <ClientOnlyMotion
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-5"
-        >
-          <h2 className="display-5 fw-bold mb-3">Latest Blog Posts</h2>
-          <p className="lead text-muted">
-            Sharing knowledge and insights from my development journey
-          </p>
-        </ClientOnlyMotion>
-
-        <Row>
-          {blogPosts.map((post, index) => (
-            <Col lg={4} md={6} key={post.id} className="mb-4">
-              <ClientOnlyMotion
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-100 card-hover shadow-sm">
-                  <Card.Body className="d-flex flex-column">
-                    <div className="mb-3">
-                      <div className="d-flex align-items-center gap-3 text-muted mb-2">
-                        <small className="d-flex align-items-center gap-1">
-                          <Calendar size={14} />
-                          <SafeDate date={post.date} />
-                        </small>
-                        <small className="d-flex align-items-center gap-1">
-                          <Clock size={14} />
-                          {post.readTime}
-                        </small>
-                      </div>
-                      
-                      <h4 className="fw-bold mb-3">
-                        <a 
-                          href={`/blog/${post.slug}`}
-                          className="text-decoration-none text-dark"
-                        >
-                          {post.title}
-                        </a>
-                      </h4>
-                    </div>
-
-                    <p className="text-muted flex-grow-1 mb-3">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="mb-3">
-                      {post.tags.map((tag, tagIndex) => (
-                        <span 
-                          key={tagIndex}
-                          className="badge bg-primary me-1 mb-1"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="mt-auto">
-                      <Button 
-                        variant="outline-primary"
-                        href={`/blog/${post.slug}`}
-                        className="d-flex align-items-center gap-2"
-                      >
-                        Read More
-                        <ArrowRight size={16} />
-                      </Button>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </ClientOnlyMotion>
-            </Col>
-          ))}
-        </Row>
-
-        <ClientOnlyMotion
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mt-5"
-        >
-          <Button 
-            variant="primary" 
-            size="lg"
-            href="/blog"
-            className="d-flex align-items-center gap-2 mx-auto"
-          >
-            View All Posts
-            <ArrowRight size={20} />
-          </Button>
-        </ClientOnlyMotion>
-      </Container>
-    </section>
+    <>
+			<section id="blog" className="section-blog-2 position-relative pt-60 pb-60">
+				<div className="container">
+					<div className="text-center">
+						<div className="d-flex align-items-center justify-content-center">
+							<svg className="text-primary-2 me-2" xmlns="http://www.w3.org/2000/svg" width={5} height={6} viewBox="0 0 5 6" fill="none">
+								<circle cx="2.5" cy={3} r="2.5" fill="#A8FF53" />
+							</svg>
+							<span className="text-linear-4 d-flex align-items-center"> Latest Posts </span>
+						</div>
+						<h3>From Blog</h3>
+					</div>
+					<div className="row mt-8">
+						{blogPosts.map((post, index) => (
+							<div key={post.id} className="col-lg-4">
+								<div className="blog-card rounded-top-2 mb-lg-3 mb-md-5 mb-3">
+									<div className="blog-card__image position-relative">
+										<div className="zoom-img rounded-2 overflow-hidden">
+											<img 
+												className="w-100" 
+												src={`assets/imgs/home-page-2/blog/img-${index + 1}.png`} 
+												alt={post.title} 
+											/>
+											<Link 
+												className="position-absolute bottom-0 start-0 m-3 text-white-keep border border-white fw-medium px-3 py-1 fs-7 bg-white rounded-2" 
+												href={`/blog/${post.slug}`}
+											>
+												{post.tags[0]}
+											</Link>
+											<Link href={`/blog/${post.slug}`} className="blog-card__link position-absolute top-50 start-50 translate-middle icon-md icon-shape rounded-circle">
+												<i className="ri-arrow-right-up-line" />
+											</Link>
+										</div>
+									</div>
+									<div className="blog-card__content position-relative text-center mt-4">
+										<span className="blog-card__date fs-7">
+											<SafeDate date={post.date} /> • {post.readTime}
+										</span>
+										<h6 className="blog-card__title mt-2">{post.title}</h6>
+										<p className="blog-card__description fs-7">{post.excerpt}</p>
+										<Link href={`/blog/${post.slug}`} className="link-overlay position-absolute top-0 start-0 w-100 h-100" />
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		</>
   );
 };

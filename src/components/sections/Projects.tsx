@@ -14,6 +14,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
+  timeline?: string; // Optional property for project timeline
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -44,22 +45,19 @@ export const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution built with Next.js, Node.js, and PostgreSQL. Features include user authentication, payment processing, order management, and admin dashboard.',
-      image: '/projects/ecommerce.jpg',
-      technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe', 'TypeScript'],
-      githubUrl: 'https://github.com/yourusername/ecommerce',
-      liveUrl: 'https://ecommerce-demo.com',
+      title: 'Payment Settlement Engine',
+      description: ' Developed an engine to facilitate, process, and settle financial transactions between parties, such as individuals, businesses, or financial institutions across various timezone inadition Improve customer experience by providing dynamic settlement scheduling.',
+      image: '/images/projects/leatherback-app.png',
+      technologies: ['.NET', 'Node.js', 'PostgreSQL', 'Stripe', 'TypeScript'],
+      liveUrl: 'https://leatherback.co/',
       featured: true
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Built with React and Socket.io.',
-      image: '/projects/taskmanager.jpg',
-      technologies: ['React', 'Socket.io', 'Express.js', 'MongoDB', 'Material-UI'],
-      githubUrl: 'https://github.com/yourusername/taskmanager',
-      liveUrl: 'https://taskmanager-demo.com',
+      title: 'USSD Payment Channel',
+      description: ' Worked with other engineers in the migration of a critical financial service which processes the most financial transactions in the bank.  Improve system reliability and efficiency using event based architecture. Leveraged on Redis caching system to improve system reliability resulting in 10% increase in transaction success rate',
+      image: '/images/projects/abp-ussd.jpeg',
+      technologies: ['.NET', 'MSSQL', 'TypeScript', 'Angular', 'Azure'],
       featured: true
     },
     {
@@ -74,30 +72,18 @@ export const Projects: React.FC = () => {
     },
     {
       id: 4,
-      title: 'Blog Platform',
-      description: 'A modern blog platform with markdown support, comment system, and SEO optimization. Built with Next.js and headless CMS integration.',
+      title: 'Omni-Commerce Infrastructure',
+      description: ' Contributed as a lead engineer for the design/development of an omni-commerce project with over 30 inventory locations. The project involved building a robust infrastructure to support multiple sales channels, including online and in-store transactions, inventory management, and customer engagement.',
       image: '/projects/blog.jpg',
-      technologies: ['Next.js', 'Contentful', 'Vercel', 'MDX'],
-      githubUrl: 'https://github.com/yourusername/blog-platform',
-      liveUrl: 'https://blog-platform-demo.com',
+      technologies: ['.NET', 'PHP', 'TypeScript', 'RabbitMQ', 'AWS', 'Octopus'],
       featured: false
     },
     {
       id: 5,
-      title: 'Analytics Dashboard',
-      description: 'A comprehensive analytics dashboard for business intelligence with interactive charts, real-time data processing, and export capabilities.',
-      image: '/projects/analytics.jpg',
-      technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'PostgreSQL'],
-      githubUrl: 'https://github.com/yourusername/analytics-dashboard',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Social Media App',
-      description: 'A social media application with post sharing, real-time messaging, and media upload functionality. Built with React Native for mobile platforms.',
+      title: 'GitOps Implementation',
+      description: ' Directed the migration of the organizations infrastructure and deployment processes to a fully GitOps-enabled environment. Employed Terraform for infrastructure as code, GitHub Actions for continuous integration and continuous deployment CI/CD, and Argo CD for application deployment and synchronization.',
       image: '/projects/social.jpg',
-      technologies: ['React Native', 'Firebase', 'Node.js', 'Socket.io'],
-      githubUrl: 'https://github.com/yourusername/social-media-app',
+      technologies: ['GitHub Actions', 'Biceps', 'Terraform', 'Argo CD', 'Azure'],
       featured: true
     }
   ];
@@ -145,12 +131,13 @@ export const Projects: React.FC = () => {
 																		<p className="text-300 mb-0 text-end">{project.technologies.join(', ')}</p>
 																	</div>
 																</li>
-																<li className="text-dark mb-3 border-bottom pb-3">
+                                {project.timeline && (<li className="text-dark mb-3 border-bottom pb-3">
 																	<div className="d-flex justify-content-between">
-																		<p className="text-dark mb-0 text-end">Status</p>
-																		<p className="text-300 mb-0 text-end">Featured Project</p>
+																		<p className="text-dark mb-0 text-end">Completion Time</p>
+																		<p className="text-300 mb-0 text-end">{project.timeline}</p>
 																	</div>
 																</li>
+                                  )}
 																<li className="text-dark mb-3 border-bottom pb-3">
 																	<div className="d-flex justify-content-between">
 																		<p className="text-dark mb-0 text-end">Type</p>
