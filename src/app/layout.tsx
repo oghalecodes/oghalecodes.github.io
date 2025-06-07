@@ -1,4 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 import '@/styles/globals.scss';
 import '@/styles/main.scss';
 import { Urbanist, Playfair_Display, DM_Mono } from "next/font/google";

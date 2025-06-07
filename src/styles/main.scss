@@ -14198,6 +14198,11 @@ strong {
 .section-projects-2 .link-hover {
   transition: all 0.2s ease;
 }
+
+.section-projects-2 .link-hover svg {
+  margin-right: 2px;
+}
+
 .section-projects-2 .link-hover svg path {
   transition: all 0.2s ease;
   fill: #5e5e65 !important;
