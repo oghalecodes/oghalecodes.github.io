@@ -27,11 +27,11 @@ export const Skills: React.FC = () => {
         { name: 'TypeScript', image: '/images/tech-icons/typescript.svg' },
         { name: 'JavaScript', image: '/images/tech-icons/javascript.svg' },
         { name: 'Vue.js', image: '/images/tech-icons/vue.svg' },
-        { name: 'HTML5', image: '/images/tech-icons/icon-4.svg' },
-        { name: 'CSS3', image: '/images/tech-icons/icon-7.svg' },
-        { name: 'Sass', image: '/images/tech-icons/icon-4.svg' },
-        { name: 'Bootstrap', image: '/images/tech-icons/icon-7.svg' },
-        { name: 'Tailwind CSS', image: '/images/tech-icons/icon-4.svg' }
+        { name: 'HTML5', image: '/images/tech-icons/html-5.svg' },
+        { name: 'CSS3', image: '/images/tech-icons/css3.svg' },
+        { name: 'Sass', image: '/images/tech-icons/sass.svg' },
+        { name: 'Bootstrap', image: '/images/tech-icons/bootstrap.svg' },
+        { name: 'Tailwind CSS', image: '/images/tech-icons/tailwind.svg' }
       ]
     },
     {
@@ -50,12 +50,11 @@ export const Skills: React.FC = () => {
       title: 'Database',
       skills: [
         { name: 'PostgreSQL', image: '/images/tech-icons/postgresql.svg' },
-        { name: 'MySQL', image: '/images/tech-icons/icon-7.svg' },
-        { name: 'MongoDB', image: '/images/tech-icons/icon-4.svg' },
-        { name: 'Redis', image: '/images/tech-icons/icon-7.svg' },
-        { name: 'Elasticsearch', image: '/images/tech-icons/icon-4.svg' },
-        { name: 'Firebase', image: '/images/tech-icons/icon-7.svg' },
-        { name: 'Supabase', image: '/images/tech-icons/icon-4.svg' }
+        { name: 'MySQL', image: '/images/tech-icons/mysql.svg' },
+        { name: 'MongoDB', image: '/images/tech-icons/mongodb.svg' },
+        { name: 'Redis', image: '/images/tech-icons/redis.svg' },
+        { name: 'Elasticsearch', image: '/images/tech-icons/elastic.svg' },
+        { name: 'Firebase', image: '/images/tech-icons/firebase.svg' },
       ]
     },
     {
@@ -63,12 +62,11 @@ export const Skills: React.FC = () => {
       skills: [
         { name: 'AWS', image: '/images/tech-icons/aws.svg' },
         { name: 'Azure', image: '/images/tech-icons/azure.svg' },
-        { name: 'Google Cloud', image: '/images/tech-icons/icon-7.svg' },
-        { name: 'Docker', image: '/images/tech-icons/icon-4.svg' },
+        { name: 'Google Cloud', image: '/images/tech-icons/gcp.svg' },
+        { name: 'Docker', image: '/images/tech-icons/docker.svg' },
         { name: 'Kubernetes', image: '/images/tech-icons/kubernetes.svg' },
-        { name: 'CI/CD', image: '/images/tech-icons/icon-7.svg' },
-        { name: 'Jenkins', image: '/images/tech-icons/icon-4.svg' },
-        { name: 'GitHub Actions', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Jenkins', image: '/images/tech-icons/jenkins.svg' },
+        { name: 'GitHub Actions', image: '/images/tech-icons/githubactions.svg' },
         { name: 'Terraform', image: '/images/tech-icons/terraform.svg' }
       ]
     },
