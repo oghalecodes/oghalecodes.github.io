@@ -82,7 +82,7 @@ export const Projects: React.FC = () => {
       id: 5,
       title: 'GitOps Implementation',
       description: ' Directed the migration of the organizations infrastructure and deployment processes to a fully GitOps-enabled environment. Employed Terraform for infrastructure as code, GitHub Actions for continuous integration and continuous deployment CI/CD, and Argo CD for application deployment and synchronization.',
-      image: '/projects/social.jpg',
+      image: 'https://via.placeholder.com/600x400',
       technologies: ['GitHub Actions', 'Biceps', 'Terraform', 'Argo CD', 'Azure'],
       featured: true
     }
@@ -93,93 +93,94 @@ export const Projects: React.FC = () => {
 
   return (
     <>
-			<section id="projects" className="section-projects-2 pt-5">
-				<div className="container">
-					<div className="rounded-3 border border-1 position-relative overflow-hidden">
-						<div className="box-linear-animation position-relative z-1">
-							<div className="p-lg-8 p-md-6 p-3 position-relative z-1">
-								<div className="d-flex align-items-center">
-									<svg className="text-primary-2 me-2" xmlns="http://www.w3.org/2000/svg" width={5} height={6} viewBox="0 0 5 6" fill="none">
-										<circle cx="2.5" cy={3} r="2.5" fill="#A8FF53" />
-									</svg>
-									<span className="text-linear-4 d-flex align-items-center"> Projects </span>
-								</div>
-								<h3>My Recent Works</h3>
-								<div className="position-relative">
-									<Swiper {...swiperOptions} className="swiper slider-two pb-3 position-relative">
-										{featuredProjects.map((project) => (
-											<SwiperSlide key={project.id}>
-												<div className="p-lg-5 p-md-4 p-3 border border-1 mt-5 bg-3">
-													<div className="row">
-														<div className="col-lg-5">
-															<img 
-																className="w-100" 
-																src={project.image || "assets/imgs/home-page-2/projects/img-1.png"} 
-																alt={project.title} 
-															/>
-														</div>
-														<div className="col-lg-7 ps-lg-5 mt-5 mt-lg-0">
-															<h4 className="text-linear-4">
-																{project.title}
-															</h4>
-															<p>{project.description}</p>
-															<ul className="mt-4 list-unstyled">
-																<li className="text-secondary-2 mb-3 border-bottom pb-3">Project Info</li>
-																<li className="text-dark mb-3 border-bottom pb-3">
-																	<div className="d-flex justify-content-between">
-																		<p className="text-dark mb-0 text-end">Technologies</p>
-																		<p className="text-300 mb-0 text-end">{project.technologies.join(', ')}</p>
-																	</div>
-																</li>
-                                {project.timeline && (<li className="text-dark mb-3 border-bottom pb-3">
-																	<div className="d-flex justify-content-between">
-																		<p className="text-dark mb-0 text-end">Completion Time</p>
-																		<p className="text-300 mb-0 text-end">{project.timeline}</p>
-																	</div>
-																</li>
-                                  )}
-																<li className="text-dark mb-3 border-bottom pb-3">
-																	<div className="d-flex justify-content-between">
-																		<p className="text-dark mb-0 text-end">Type</p>
-																		<p className="text-300 mb-0 text-end">Full Stack Development</p>
-																	</div>
-																</li>
-															</ul>
-															<div className="d-flex flex-wrap align-items-center gap-3 mt-7">
-																{project.liveUrl && (
-																	<Link href={project.liveUrl} className="text-300 border-bottom border-1 px-2 pb-2 link-hover">
-																		<SquareDashedMousePointer size={13} className="me-1" />
-																		Live Demo
-																	</Link>
-																)}
-																{project.githubUrl && (
-																	<Link href={project.githubUrl} className="text-300 border-bottom border-1 px-2 pb-2 link-hover">
-																		<Github size={13} className="me-1" />
-																		View on Github
-																	</Link>
-																)}
-															</div>
-														</div>
-													</div>
-												</div>
-											</SwiperSlide>
-										))}
-									</Swiper>
-									<div className="position-absolute bottom-0 end-0 gap-2 pb-7 pe-5 d-none d-md-flex">
-										<div className="swiper-button-prev end-0 shadow position-relative">
-                        <ChevronLeft size={24} />
-										</div>
-										<div className="swiper-button-next end-0 shadow position-relative">
-                        <ChevronRight size={24} />
-										</div>
-									</div>
-								</div>
-							</div>
-							<img className="position-absolute top-0 start-0 z-0" src="images/bg/bg_4.png" alt="zelio" />
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
+      <section id="projects" className="section-projects-2 pt-5">
+        <div className="container">
+          <div className="rounded-3 border border-1 position-relative overflow-hidden">
+            <div className="box-linear-animation position-relative z-1">
+              <div className="p-lg-8 p-md-6 p-3 position-relative z-1">
+                <div className="d-flex align-items-center">
+                  <svg className="text-primary-2 me-2" xmlns="http://www.w3.org/2000/svg" width={5} height={6} viewBox="0 0 5 6" fill="none">
+                    <circle cx="2.5" cy={3} r="2.5" fill="#A8FF53" />
+                  </svg>
+                  <span className="text-linear-4 d-flex align-items-center"> Projects </span>
+                </div>
+                <h3>My Recent Works</h3>
+                <div className="position-relative">
+                  <Swiper {...swiperOptions} className="swiper slider-two pb-3 position-relative">
+                    {featuredProjects.map((project) => (
+                      <SwiperSlide key={project.id}>
+                        <div className="p-lg-5 p-md-4 p-3 border border-1 mt-5 bg-3">
+                          <div className="row">
+                            <div className="col-lg-5">
+                              <img 
+                                className="w-100" 
+                                src={project.image || "ahttps://via.placeholder.com/600x400"} 
+                                alt={project.title} 
+                              />
+                            </div>
+                            <div className="col-lg-7 ps-lg-5 mt-5 mt-lg-0">
+                              <h4 className="text-linear-4">
+                                {project.title}
+                              </h4>
+                              <p>{project.description}</p>
+                              <ul className="mt-4 list-unstyled">
+                                <li className="text-secondary-2 mb-3 border-bottom pb-3">Project Info</li>
+                                <li className="text-dark mb-3 border-bottom pb-3">
+                                  <div className="d-flex justify-content-between">
+                                    <p className="text-dark mb-0 text-end">Technologies</p>
+                                    <p className="text-300 mb-0 text-end">{project.technologies.join(', ')}</p>
+                                  </div>
+                                </li>
+                                {project.timeline && (
+                                  <li className="text-dark mb-3 border-bottom pb-3">
+                                    <div className="d-flex justify-content-between">
+                                      <p className="text-dark mb-0 text-end">Completion Time</p>
+                                      <p className="text-300 mb-0 text-end">{project.timeline}</p>
+                                    </div>
+                                  </li>
+                                )}
+                                <li className="text-dark mb-3 border-bottom pb-3">
+                                  <div className="d-flex justify-content-between">
+                                    <p className="text-dark mb-0 text-end">Type</p>
+                                    <p className="text-300 mb-0 text-end">Full Stack Development</p>
+                                  </div>
+                                </li>
+                              </ul>
+                              <div className="d-flex flex-wrap align-items-center gap-3 mt-7">
+                                {project.liveUrl && (
+                                  <Link href={project.liveUrl} className="text-300 border-bottom border-1 px-2 pb-2 link-hover">
+                                    <SquareDashedMousePointer size={13} className="me-1" />
+                                    Live Demo
+                                  </Link>
+                                )}
+                                {project.githubUrl && (
+                                  <Link href={project.githubUrl} className="text-300 border-bottom border-1 px-2 pb-2 link-hover">
+                                    <Github size={13} className="me-1" />
+                                    View on Github
+                                  </Link>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <div className="position-absolute bottom-0 end-0 gap-2 pb-7 pe-5 d-none d-md-flex">
+                    <div className="swiper-button-prev end-0 shadow position-relative">
+                      <ChevronLeft size={24} />
+                    </div>
+                    <div className="swiper-button-next end-0 shadow position-relative">
+                      <ChevronRight size={24} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <img className="position-absolute top-0 start-0 z-0" src="images/bg/bg_4.png" alt="zelio" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };

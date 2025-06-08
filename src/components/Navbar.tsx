@@ -47,13 +47,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 												<Link className="nav-link active" href="#about">About me</Link>
 											</li>
 											<li className="nav-item">
-												<Link className="nav-link" href="#resume">Resume</Link>
-											</li>
-											<li className="nav-item">
 												<Link className="nav-link" href="#services">Services</Link>
 											</li>
 											<li className="nav-item">
-												<Link className="nav-link" href="#portfolio">Portfolio</Link>
+												<Link className="nav-link" href="#portfolio">Resume</Link>
 											</li>
 											<li className="nav-item">
 												<Link className="nav-link" href="#blog">Blog</Link>
