@@ -11,7 +11,9 @@ import Link from 'next/link';
 interface BlogPost {
   id: number;
   title: string;
+  image?: string; // Optional image property
   excerpt: string;
+  url: string; 
   date: string;
   readTime: string;
   slug: string;
@@ -51,30 +53,14 @@ export const Blog: React.FC = () => {
   const blogPosts: BlogPost[] = [
     {
       id: 1,
-      title: 'Building Scalable React Applications with TypeScript',
-      excerpt: 'Learn best practices for structuring large React applications using TypeScript, including component patterns, state management, and performance optimization techniques.',
-      date: '2024-05-15',
-      readTime: '8 min read',
-      slug: 'building-scalable-react-applications-typescript',
-      tags: ['React', 'TypeScript', 'Architecture']
-    },
-    {
-      id: 2,
-      title: 'Microservices Architecture: Lessons Learned',
-      excerpt: 'A deep dive into microservices architecture, including when to use it, common pitfalls to avoid, and how to handle distributed system challenges.',
-      date: '2024-04-28',
-      readTime: '12 min read',
-      slug: 'microservices-architecture-lessons-learned',
-      tags: ['Architecture', 'Microservices', 'Backend']
-    },
-    {
-      id: 3,
-      title: 'Optimizing Web Performance: A Complete Guide',
-      excerpt: 'Comprehensive guide to web performance optimization, covering everything from bundle size reduction to image optimization and caching strategies.',
-      date: '2024-04-10',
-      readTime: '10 min read',
-      slug: 'optimizing-web-performance-complete-guide',
-      tags: ['Performance', 'Web Development', 'Optimization']
+      title: 'Hosting Multiple .NET Applications on AWS Elastic Beanstalk (Linux)',
+      image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*Lr8QI-XuJd7C3UHQ73Riqg.jpeg',
+      excerpt: '🚀 Just published a guide on deploying multiple .NET 9 apps on a single AWS Elastic Beanstalk environment using Nginx as a reverse proxy! This setup optimizes costs, simplifies management, and enhances inter-app communication—perfect for development and staging scenarios. Covered configuring ports, setting up Nginx, and deployment steps for Blazor, Web API, and Auth services. Check it out if youre looking to streamline your .NET deployments! ',
+      url: 'https://medium.com/@oghalecodes/hosting-multiple-net-9-applications-on-aws-elastic-beanstalk-linux-4d5f5e4c446e',
+      date: '2024-03-01',
+      readTime: '6 min read',
+      slug: 'hosting-multiple-net-9-applications-on-aws-elastic-beanstalk-linux-4d5f5e4c446e',
+      tags: ['.Net', 'AWS', 'Architecture']
     }
   ];
 
@@ -99,16 +85,16 @@ export const Blog: React.FC = () => {
 										<div className="zoom-img rounded-2 overflow-hidden">
 											<img 
 												className="w-100" 
-												src={`assets/imgs/home-page-2/blog/img-${index + 1}.png`} 
+												src={post.image || "https://via.placeholder.com/600x400"} 
 												alt={post.title} 
 											/>
 											<Link 
 												className="position-absolute bottom-0 start-0 m-3 text-white-keep border border-white fw-medium px-3 py-1 fs-7 bg-white rounded-2" 
-												href={`/blog/${post.slug}`}
+												href={`${post.url}`}
 											>
 												{post.tags[0]}
 											</Link>
-											<Link href={`/blog/${post.slug}`} className="blog-card__link position-absolute top-50 start-50 translate-middle icon-md icon-shape rounded-circle">
+											<Link href={`${post.url}`} className="blog-card__link position-absolute top-50 start-50 translate-middle icon-md icon-shape rounded-circle">
 												<i className="ri-arrow-right-up-line" />
 											</Link>
 										</div>
@@ -119,7 +105,7 @@ export const Blog: React.FC = () => {
 										</span>
 										<h6 className="blog-card__title mt-2">{post.title}</h6>
 										<p className="blog-card__description fs-7">{post.excerpt}</p>
-										<Link href={`/blog/${post.slug}`} className="link-overlay position-absolute top-0 start-0 w-100 h-100" />
+										<Link href={`${post.url}`} className="link-overlay position-absolute top-0 start-0 w-100 h-100" />
 									</div>
 								</div>
 							</div>

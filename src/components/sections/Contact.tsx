@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { ClientOnlyMotion } from '../ClientOnlyMotion';
 
 export const Contact: React.FC = () => {
@@ -47,28 +48,22 @@ export const Contact: React.FC = () => {
 
   const contactInfo = [
     {
-      icon: 'ri-mail-fill',
+      icon: Mail,
       title: 'Email',
-      value: 'contact@william.design',
-      link: 'mailto:contact@william.design'
+      value: 'contact@iamoghale.com',
+      link: 'mailto:contact@iamoghale.com'
     },
     {
-      icon: 'ri-phone-fill',
+      icon: Phone,
       title: 'Phone Number',
-      value: '+1-234-567-8901',
-      link: 'tel:+1-234-567-8901'
+      value: '+1-647-231-9543',
+      link: 'tel:+1-647-231-9543'
     },
     {
-      icon: 'ri-skype-fill',
-      title: 'Skype',
-      value: 'WilliamDesignUX',
-      link: 'skype:WilliamDesignUX?add'
-    },
-    {
-      icon: 'ri-map-2-fill',
+      icon: MapPin,
       title: 'Address',
-      value: '0811 Erdman Prairie, Joaville CA',
-      link: 'https://maps.google.com/maps?q=0811+Erdman+Prairie,Joaville+CA'
+      value: 'Toronto, ON Canada',
+      link: 'https://www.google.com/maps/place/Etobicoke,+ON/@43.6723503,-79.5954673,13z/data=!3m1!4b1!4m6!3m5!1s0x882b3760d44c33c5:0x59e9c8bf2149d577!8m2!3d43.6204946!4d-79.5131983!16zL20vMDFoNTdy?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D'
     }
   ];
 
@@ -115,7 +110,7 @@ export const Contact: React.FC = () => {
 								<div key={index} className="d-flex align-items-center mb-3 position-relative d-inline-flex">
 									<div className="d-inline-block">
 										<div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
-											<i className={`${contact.icon} text-primary-2 fs-26`} />
+											<contact.icon size={26} className="text-primary-2" />
 										</div>
 									</div>
 									<div className="ps-3 h-100">

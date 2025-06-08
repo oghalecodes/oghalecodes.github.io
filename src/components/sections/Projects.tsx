@@ -93,7 +93,7 @@ export const Projects: React.FC = () => {
 
   return (
     <>
-			<div className="section-projects-2 pt-5">
+			<section id="projects" className="section-projects-2 pt-5">
 				<div className="container">
 					<div className="rounded-3 border border-1 position-relative overflow-hidden">
 						<div className="box-linear-animation position-relative z-1">
