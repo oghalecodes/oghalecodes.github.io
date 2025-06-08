@@ -7,32 +7,82 @@ import { Container, Row, Col, Badge } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { ClientOnlyMotion } from '../ClientOnlyMotion';
 
+interface Skill {
+  name: string;
+  image: string;
+}
+
+interface SkillCategory {
+  title: string;
+  skills: Skill[];
+}
+
 export const Skills: React.FC = () => {
-  const skillCategories = [
+  const skillCategories: SkillCategory[] = [
     {
       title: 'Frontend',
-      skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Vue.js', 'HTML5', 'CSS3', 'Sass', 'Bootstrap', 'Tailwind CSS']
+      skills: [
+        { name: 'React', image: '/images/tech-icons/react.svg' },
+        { name: 'Next.js', image: '/images/tech-icons/react.svg' },
+        { name: 'TypeScript', image: '/images/tech-icons/typescript.svg' },
+        { name: 'JavaScript', image: '/images/tech-icons/javascript.svg' },
+        { name: 'Vue.js', image: '/images/tech-icons/vue.svg' },
+        { name: 'HTML5', image: '/images/tech-icons/icon-4.svg' },
+        { name: 'CSS3', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Sass', image: '/images/tech-icons/icon-4.svg' },
+        { name: 'Bootstrap', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Tailwind CSS', image: '/images/tech-icons/icon-4.svg' }
+      ]
     },
     {
       title: 'Backend',
-      skills: ['Node.js', 'Express.js', 'Python', 'Django', 'FastAPI', 'PHP', 'Laravel', 'Java', 'Spring Boot', 'C#']
+      skills: [
+        { name: 'Node.js', image: '/images/tech-icons/nodejs.svg' },
+        { name: 'Express.js', image: '/images/tech-icons/nodejs.svg' },
+        { name: 'Python', image: '/images/tech-icons/python.svg' },
+        { name: 'Django', image: '/images/tech-icons/django.svg' },
+        { name: 'PHP', image: '/images/tech-icons/php.svg' },
+        { name: 'Java', image: '/images/tech-icons/java.svg' },
+        { name: 'C#', image: '/images/tech-icons/csharp.svg' }
+      ]
     },
     {
       title: 'Database',
-      skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Elasticsearch', 'Firebase', 'Supabase']
+      skills: [
+        { name: 'PostgreSQL', image: '/images/tech-icons/postgresql.svg' },
+        { name: 'MySQL', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'MongoDB', image: '/images/tech-icons/icon-4.svg' },
+        { name: 'Redis', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Elasticsearch', image: '/images/tech-icons/icon-4.svg' },
+        { name: 'Firebase', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Supabase', image: '/images/tech-icons/icon-4.svg' }
+      ]
     },
     {
       title: 'Cloud & DevOps',
-      skills: ['AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes', 'CI/CD', 'Jenkins', 'GitHub Actions', 'Terraform']
+      skills: [
+        { name: 'AWS', image: '/images/tech-icons/aws.svg' },
+        { name: 'Azure', image: '/images/tech-icons/azure.svg' },
+        { name: 'Google Cloud', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Docker', image: '/images/tech-icons/icon-4.svg' },
+        { name: 'Kubernetes', image: '/images/tech-icons/kubernetes.svg' },
+        { name: 'CI/CD', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Jenkins', image: '/images/tech-icons/icon-4.svg' },
+        { name: 'GitHub Actions', image: '/images/tech-icons/icon-7.svg' },
+        { name: 'Terraform', image: '/images/tech-icons/terraform.svg' }
+      ]
     },
     {
       title: 'Tools & Others',
-      skills: ['Git', 'Webpack', 'Vite', 'Jest', 'Cypress', 'Figma', 'Jira', 'Slack', 'VS Code', 'Linux']
+      skills: [
+        { name: 'Git', image: '/images/tech-icons/git.svg' },
+        { name: 'Linux', image: '/images/tech-icons/linux.svg' }
+      ]
     }
   ];
 
   // Function to get random skills from all categories
-  const getRandomSkills = (count: number) => {
+  const getRandomSkills = (count: number): Skill[] => {
     const allSkills = skillCategories.flatMap(category => category.skills);
     const shuffled = [...allSkills].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
@@ -69,9 +119,9 @@ export const Skills: React.FC = () => {
 															{marqueeSkills1.map((skill, index) => (
 																<li key={index} className="carouselTicker__item mt-6">
 																	<Link href="#" className="brand-logo icon_80 icon-shape rounded-3">
-																		<img src="assets/imgs/home-page-2/hero-1/icon-4.svg" alt="brand" />
+																		<img src={skill.image} alt={skill.name} />
 																	</Link>
-																	<span className="tool-tip">{skill}</span>
+																	<span className="tool-tip">{skill.name}</span>
 																</li>
 															))}
 														</ul>
@@ -84,9 +134,9 @@ export const Skills: React.FC = () => {
 															{marqueeSkills2.map((skill, index) => (
 																<li key={index} className="carouselTicker__item mt-6">
 																	<Link href="#" className="brand-logo icon_80 icon-shape rounded-3">
-																		<img src="assets/imgs/home-page-2/hero-1/icon-7.svg" alt="brand" />
+																		<img src={skill.image} alt={skill.name} />
 																	</Link>
-																	<span className="tool-tip">{skill}</span>
+																	<span className="tool-tip">{skill.name}</span>
 																</li>
 															))}
 														</ul>
@@ -103,7 +153,7 @@ export const Skills: React.FC = () => {
 																<li key={index} className="mb-3">
 																	<div className="d-flex flex-column flex-md-row gap-2">
 																		<p className="text-dark text-nowrap mb-0">{category.title}:</p>
-																		<span className="text-300">{category.skills.join(', ')}</span>
+																		<span className="text-300">{category.skills.map(skill => skill.name).join(', ')}</span>
 																	</div>
 																</li>
 															))}
